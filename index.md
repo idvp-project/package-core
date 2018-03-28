@@ -1,15 +1,20 @@
 ---
 layout: default
 title: test!!!!!!!
+jsarr:
+- UnityProgress.js
+- UnityLoader.js
 ---
 
 {% capture styles %}
 {% include style.css %}
 {% endcapture %}
-{% capture scripts %}
-{% include UnityProgress.js %}
-{% include UnityLoader.js %}
-{% endcapture %}
+
+{% for js in page.jsarr %}
+  <script type="text/javascript">
+     {% include {{ js }} %}
+  </script>
+{% endfor %}
 
 {% include test.html %}
 
