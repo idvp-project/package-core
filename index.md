@@ -3,6 +3,10 @@ layout: default
 title: test!!!!!!!
 ---
 
+{% include UnityProgress.js %}
+{% include UnityLoader.js %}
+{% include style.css %}
+
 {% include test.html %}
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
