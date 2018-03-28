@@ -3,7 +3,7 @@ layout: default
 title: test!!!!!!!
 ---
 
-{{ <script>alert('Hi!');</script> }}
+{% include test.html %}
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
