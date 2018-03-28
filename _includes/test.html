@@ -30,14 +30,11 @@
 	  </textarea>
 	<input type="button" onclick="SendTemplate()" value="Отправить"/>
     </div>
-    <script>
-	  function SendTemplate() {
-	     var x = document.getElementById("template").value;
-		gameInstance.SendMessage("SceneMain", "StartTemplate", x);
-  }
-    </script>
 
 <script src="TemplateData/UnityProgress.js"></script>  
 <script src="Build/UnityLoader.js"></script>    
 
 <script>var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webgl_p.json", {onProgress: UnityProgress});</script>
+<script>function SendTemplate() { var x = document.getElementById("template").value; 
+				     gameInstance.SendMessage("SceneMain", "StartTemplate", x);
+}</script>
