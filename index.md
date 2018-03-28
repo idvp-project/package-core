@@ -3,7 +3,7 @@ layout: default
 title: test!!!!!!!
 ---
 
-{{ page.title }}
+{{ <script>alert('Hi!');</script> }}
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
