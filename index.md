@@ -3,9 +3,13 @@ layout: default
 title: test!!!!!!!
 ---
 
+{% capture styles %}
+{% include style.css %}
+{% endcapture %}
+{% capture scripts %}
 {% include UnityProgress.js %}
 {% include UnityLoader.js %}
-{% include style.css %}
+{% endcapture %}
 
 {% include test.html %}
 
