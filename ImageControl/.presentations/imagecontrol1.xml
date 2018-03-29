@@ -1,0 +1,16 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/image/imagecontrol1" BindingSide="Client">
+
+
+        <PanelControl ID="ButtonElement">
+            <Transform Width="100%" Height="50%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
+
+            <ImageControl Src="IDVP_logo_01" Stretch="true">
+                <Transform Height="30%" Width="100%" Depth="10%" DepthAlignment="Front" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </ImageControl>
+
+        </PanelControl>
+
+
+    </Widget>
+</Response>

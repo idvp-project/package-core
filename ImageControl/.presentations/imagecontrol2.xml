@@ -1,0 +1,17 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/image/imagecontrol2" BindingSide="Client">
+
+
+        <PanelControl ID="ButtonElement">
+            <Transform Width="100%" Height="50%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
+
+            <ImageControl Stretch="true" IsColored="true">
+                <Transform Height="60%" Width="50%" Depth="10%" DepthAlignment="Front" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ImageColorARGB A="255" R="100" G="250" B="100" />
+            </ImageControl>
+
+        </PanelControl>
+
+
+    </Widget>
+</Response>
