@@ -3,10 +3,6 @@ layout: default
 title: test!!!!!!!
 ---
 
-{% capture styles %}
-{% include style.css %}
-{% endcapture %}
-
 {% include test.html %}
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
