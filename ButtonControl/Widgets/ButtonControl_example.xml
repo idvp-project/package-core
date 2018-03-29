@@ -1,2 +1,2 @@
-<ButtonControl ID="lightbutton" Skin="create_btn" Width="188" Height="68" Visible="true">
+<ButtonControl ID="lightbutton1" Skin="create_btn" Width="188" Height="68" Visible="true">
 </ButtonControl>
