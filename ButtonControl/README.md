@@ -12,15 +12,15 @@
 Код примера, приведенного выше. Файл: 
 
 ```xml
-{% include_relative Widgets/ButtonControl_example.xml %}
+{% include_relative .presentations/ButtonControl_example.xml %}
 ```
 
 ```xml
-{% include_relative Widgets/ButtonControl_example.xml %}
+{% include_relative .presentations/ButtonControl_example.xml %}
 ```
 
 ```xml
-{% include_relative Widgets/ButtonControl_example.xml %}
+{% include_relative .presentations/ButtonControl_example.xml %}
 ```
 
 ## Свойства компонента:
