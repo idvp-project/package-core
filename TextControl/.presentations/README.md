@@ -6,7 +6,9 @@
 
 Эффект трехмерности теста достигается свойством is3D=true. При работе с трехмерным текстом важно учитывать положение камеры. 
 
-![](../.screenshots/textcontrol1.png)
+![](../.screenshots/TextControl1.png)
+
+Код примера хранится в файле textcontrol1.xml.
 
 ```xml
 <PanelControl ID="TextElement">
@@ -26,7 +28,7 @@
 
 ![](../.screenshots/buttoncontrol_toggle_button.png)
 
-
+Код примера находится в файле textcontrol1.xml.
 
 ```xml
 <PanelControl ID="ButtonElement">
@@ -47,12 +49,6 @@
   </ButtonControl>
 </PanelControl>
 ```
-
-## Кнопка с текстом
-
-Добавление текста в кнопку, например надписи "ОК" осуществляется размещением компонента TextControl внутри компонента ButtonControl.
-
-Код этого примера.
 
 
 

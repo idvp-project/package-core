@@ -9,7 +9,7 @@
 
 ![MeshControl](.screenshots/MeshControl.png)
 
-Код примера, приведенного выше, файл 
+Код примера хранится в файле meshcontrol.xml.
 
 ```xml
 <MeshControl Model="Meshes/woman_with_chair1" KeepAspect="true">

@@ -1,4 +1,4 @@
-# Варианты использования ButtonControl 1
+# Варианты использования ButtonControl 
 
 Внешний вид ButtonControl определяется текстурой - картинкой, загружаемой из графического файла.
 Текстура может значительно отличаться в зависимости от дизайна приложения.
@@ -10,7 +10,7 @@
 
 Эффект трехмерности в кнопке достигается использованием в кнопке текстуры стилизированной под 3D, которая размещается внутри кнопки с помощью дополнительного вложенного компонента ImageControl.
 
-![](Screenshots/volume_button.png)
+![](../.screenshots/volume_button.png)
 
 ```xml
 <ButtonControl ID="lightbutton" Skin="invisible" Visible="true">
@@ -26,7 +26,7 @@
 
 Для создания кнопки-переключателя (toggle button) используется слудующий прием: одна под одной создается две кнопки сответсвенно с текстурой первого и второго состояния, которые при нажаитии меняют статус видлимости на противоположный. 
 
-![](Screenshots/buttoncontrol_toggle_button.png)
+![](../.screenshots/buttoncontrol_toggle_button.png)
 
 
 
@@ -60,5 +60,5 @@
 
 ## Рекомендуемые ссылки:
 
-- [ButtonControl Основные сведения](README.md)
-- [Особенности и приемы работы с ButtonControl](README_hints.md)
+- [ButtonControl Основные сведения](../README.md)
+- [Особенности и приемы работы с ButtonControl](../README_hints.md)

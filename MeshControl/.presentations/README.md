@@ -8,7 +8,7 @@
 
 ![](../.screenshots/MeshControl1.png)
 
-Код кейса хранится в файле MeshControl1.xml.
+Код кейса хранится в файле meshcontrol1.xml.
 
 ```xml
 <MeshControl Model="Meshes/woman_with_chair1" KeepAspect="true" ColorerMode="ByMaterials">

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ImageControl">
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation>
+          Компонент для отображения картинок. Размещает указанную картинку в пространстве.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:extension base="Control">
+      <xs:sequence>
+          <xs:element name="ImageColorARGB" type="ColorARGB" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                 Цвет картинки
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ShaderDrawRules" type="ShaderDrawRules" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                 Переопределить параметры отрисовки
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+      </xs:sequence>
+        <xs:attribute name="Stretch" type="xs:boolean" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Отвечает за то, будет ли картинка растягиваться по каждой оси независимо, чтобы целиком заполнить выделенную область для размещения.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FlipHorizontal" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>
+              Отображать ли картинку зеркально по горизонтали.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="FlipVertical" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>
+              Отображать ли картинку зеркально по вертикали.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Src" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>
+              Название картинки или закодированная в base64 картинка в формате .png (в зависимости от параметра IsBase64).
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Opaque" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>
+              Будет ли картинка непрозрачной.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SourceType" type="ImageControlSourceType" default="Resource">
+          <xs:annotation>
+            <xs:documentation>
+              Тип хранимово в свойстве Src значения.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IsColored" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>
+              Будет ли картинка домножена на цвет
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ImageControlSourceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Resource">
+                <xs:annotation>
+                    <xs:documentation>
+                        Изображение хранится в ресурсах приложения. В Src находится имя ресурса.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Base64">
+                <xs:annotation>
+                    <xs:documentation>
+                        Изображение передаётся закодированной в Base64 строкой. В Src находится кодированная строка.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>      
+            <xs:enumeration value="PreloadedFile">
+                <xs:annotation>
+                    <xs:documentation>
+                        Изображение скачивается через сервис получения файлов. В Src находится имя скачанного файла.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>      
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ShaderDrawRules">
+      <xs:complexContent>
+        <xs:extension base="Bindable">
+          <xs:sequence/>
+          <xs:attribute name="QueueStep" type="xs:int" default="0">
+            <xs:annotation>
+              <xs:documentation>
+                Изменить очередь отрисовки, чем больше тем позже место в очереди
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ZWrite" type="xs:boolean" default="false">
+            <xs:annotation>
+              <xs:documentation>
+                Записывать или нет в буфер глубины
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ZTest" type="xs:int" default="7">
+            <xs:annotation>
+              <xs:documentation>
+                Проверка по глубине:
+                    Disabled = 0,
+                    Never = 1,
+                    Less = 2,
+                    Equal = 3,
+                    LessEqual = 4,
+                    Greater = 5,
+                    NotEqual = 6,
+                    GreaterEqual = 7,
+                    Always = 8
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+</xs:schema>

@@ -6,7 +6,7 @@
 
 1. Графический файл с несколькими вариантами текстур, соответствующие различным свойствам ButtonControl.
 
-![](Screenshots/SKIN_IDVP_comp_01.png)
+![](.screenshots/SKIN_IDVP_comp_01.png)
 
 2. Файл skin.xml, содержащий текстурный атлас, определяющий области внутри графического файла, соответствующие определенным состояниям.
 
@@ -41,7 +41,7 @@ ToDo:
 
 Для реализации toggle кнопки или кнопки-переключателя, которая меняет свое состояние по клику и вовзращается в исходное по второму клику, применяется следующий прием: создается 2 кнопки, расположенные одна под другой.
 
-![buttoncontrol_toggle_button](Screenshots/buttoncontrol_toggle_button.png)
+![buttoncontrol_toggle_button](C:\Users\dmilenkiy\Documents\demo-component-layout-test\ButtonControl\.screenshots\buttoncontrol_toggle_button.png)
 
 Пример кода с реализацией toggle кнопки:
 
@@ -58,7 +58,7 @@ ToDo:
 ## Рекомендуемые ссылки:
 
 - [ButtonControl Основные сведения](README.md)
-- [Варианты использования ButtonControl](README_usage.md)
+- [Варианты использования ButtonControl](.presentations/README.md)
 
 
 

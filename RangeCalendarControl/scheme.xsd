@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="RangeCalendarControl">
+		<xs:complexContent>
+			<xs:extension base="Control">
+				<xs:sequence>
+					<xs:element name="DateSelectedEvent" type="Event"/>
+					<xs:element name="MonthsLocalization" type="CalendarRangeSelectorMonthsLocalizationData" />
+					<xs:element name="DaysLocalization" type="CalendarRangeSelectorDaysLocalizationData" />
+					<xs:element name="QuarterLocalization" type="CalendarRangeSelectorQuarterLocalizationData" />
+				</xs:sequence>
+				<xs:attribute name="DateCaption" type="xs:string" default="Дата">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки режима выбора даты.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PeriodCaption" type="xs:string" default="Период">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки режима выбора периода.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="DayCaption" type="xs:string" default="День">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки режима выбора дня.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="MonthCaption" type="xs:string" default="Месяц">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки режима выбора месяца.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ChooseLastLoadDateCaption" type="xs:string" default="Выбрать последнюю дату загрузки">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки выбора последней даты загрузки.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ApplyCaption" type="xs:string" default="Применить">
+					<xs:annotation>
+						<xs:documentation>
+							Текст кнопки применения.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				
+				<xs:attribute name="StartDateEventKey" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Имя параметра начальной даты.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="EndDateEventKey" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Имя параметра конечной даты.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				
+				<xs:attribute name="DateFormat" type="xs:string" default="yyyy-MM-dd">
+					<xs:annotation>
+						<xs:documentation>
+							https://msdn.microsoft.com/ru-ru/library/8kb3ddd4(v=vs.110).aspx
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="StartDate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Начальная дата.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="EndDate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Конечная дата.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="MinDate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Минимально допустимая дата.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="MaxDate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Максимально допустимая дата.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="LastLoadDate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Последняя дата загрузки.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				
+				<xs:attribute name="HorizontalAlignment" type="AlignmentType">
+					<xs:annotation>
+						<xs:documentation>
+							Горизонтальное выравнивание.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="VerticalAlignment" type="VerticalAlign">
+					<xs:annotation>
+						<xs:documentation>
+							Вертикальное выравнивание.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ActiveMode" type="RangeCalendarActiveMode" default="Both">
+					<xs:annotation>
+						<xs:documentation>
+							Доступные режимы работы календаря.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="CalendarRangeSelectorQuarterLocalizationData">
+		<xs:complexContent>
+			<xs:extension base="Bindable">
+				<xs:attribute name="FirstQuarterName" type="xs:string" default="I" />
+				<xs:attribute name="SecondQuarterName" type="xs:string" default="II" />
+				<xs:attribute name="ThirdQuarterName" type="xs:string" default="III" />
+				<xs:attribute name="FourthQuarterName" type="xs:string" default="IV" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="RangeCalendarActiveMode">
+		<xs:annotation>
+			<xs:documentation>
+				Активные режимы календаря.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DateOnly">
+				<xs:annotation>
+					<xs:documentation>
+						Только режим "Дата".
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PeriodOnly">
+				<xs:annotation>
+					<xs:documentation>
+						Только режим "Период".
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Both">
+				<xs:annotation>
+					<xs:documentation>
+						Оба режима активны.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

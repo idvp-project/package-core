@@ -1,0 +1,22 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/buttoncontrol" BindingSide="Client">
+        <!--<Declare Name="BackMode" Value="[define('BackMode', 'twodee')]" />-->
+        <Declare Name="SelectedCase" Value="[define('SelectedCase', '')]" />
+
+        <Params>
+            <Param Key="SelectedCase">
+                <Bind Name="Value" Value="[SelectedCase]"/>
+            </Param>
+        </Params>
+
+
+        <PanelControl ID="ButtonElement">
+            <Transform Width="20%" Height="40%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
+            <ButtonControl ID="lightbutton"  Skin="slider_on_off" Width="188" Toggle="true" Height="68" Visible="true">
+                <Transform Depth="40%" DepthAlignment="Front"/>
+                <!--<Event Name="BigButtonClearClick"/>-->
+            </ButtonControl>
+        </PanelControl>
+        
+    </Widget>
+</Response>

@@ -7,7 +7,7 @@
 
 Следующий пример демонстрирует RangeCalendarControl в действии.
 
-![ButtonControl](.screenshots/RangeCalendarControl.PNG)Код примера, приведенного выше. Файл rangecalendarcontrol.xml (уточнить по необходимому коду, тут не однозначно что относиться к календарю). 
+![ButtonControl](.screenshots/RangeCalendarControl.PNG)Код примера, приведенного выше. Файл rangecalendarcontrol.xml. 
 
 ```xml
 <StackPanelControl ID="CalendarPanel" Orientation="Vertical" Visible="true">

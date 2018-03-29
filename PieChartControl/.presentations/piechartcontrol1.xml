@@ -1,0 +1,32 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/piechartcontrol1" BindingSide="Client">
+
+
+        <SourceCode>
+            <Text>
+
+                tableToBind = {
+
+                    valueRed = '40', valueGreen = '60'
+
+                }
+
+            </Text>
+        </SourceCode>
+
+        <PieChartControl ID="RedGreenPie" Style="Gazprombank" Radius="1" Static="false">
+            <Transform Width="100%" Height="10%"/>
+            <PieChartSector>
+                <Color A="255" R="96" G="204" B="20"/>
+                <Bind Name="Value" Value="[tableToBind.valueRed]"/>
+            </PieChartSector>
+            <PieChartSector>
+                <Color A="255" R="213" G="11" B="15"/>
+                <Bind Name="Value" Value="[tableToBind.valueGreen]"/>
+            </PieChartSector>
+        </PieChartControl>
+
+
+
+    </Widget>
+</Response>

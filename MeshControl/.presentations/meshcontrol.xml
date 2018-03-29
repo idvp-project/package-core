@@ -1,0 +1,11 @@
+<Response>
+    <Widget WidgetType="Widget" Name="meshcontrol" BindingSide="Client">
+
+
+        <MeshControl Model="Meshes/woman_with_chair1" KeepAspect="true">
+            <Color A="255" R="200" G="200" B="200"/>
+        </MeshControl>
+
+
+    </Widget>
+</Response>

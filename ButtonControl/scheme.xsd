@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="BaseButtonControl">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Компонент, содержащий базовое описание функционала любой кнопки.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="Control">
+				<xs:sequence>
+					<xs:element name="Event" type="Event" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Событие нажатия.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ButtonColorARGB" type="ColorARGB" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Основной цвет кнопки.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="UseColorARGB" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>
+							Будет ли использоваться настройка основного цвета.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Height" type="xs:int" use="required">
+					<xs:annotation>
+						<xs:documentation>
+							Высота кнопки в текстурных пикселях.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Width" type="xs:int" use="required">
+					<xs:annotation>
+						<xs:documentation>
+							Ширина кнопки в текстурных пикселях.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Selected" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							Показывает, находится ли кнопка в «выбранном» состоянии.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Toggle" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							Будет ли работать кнопка как переключатель или нет.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Disabled" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>
+							Находится ли кнопка в неактивном состоянии.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Caption" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Надпись на кнопке.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ButtonControl">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Компонент предназначен для отображения экранного элемента с очерченной границей, нажатие на который приводит к программно связанному с этим элементом действию или событию.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseButtonControl">
+				<xs:attribute name="Stretch" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>
+							Отвечает за то, будет ли кнопка растягиваться по каждой оси независимо, чтобы целиком заполнить выделенную область для размещения.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Skin" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Название скина для кнопки.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="TouchXScale" type="xs:float" default="1">
+					<xs:annotation>
+						<xs:documentation>
+							Масштабный коэффициент области клика кнопки по ширине. Только для опытных пользователей.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="TouchYScale" type="xs:float" default="1">
+					<xs:annotation>
+						<xs:documentation>
+							Масштабный коэффициент области клика кнопки по высоте. Только для опытных пользователей.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="ButtonControlCommand">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="select">
+				<xs:annotation>
+					<xs:documentation>
+						Кнопка переходит в состояние «выбранная».
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="unselect">
+				<xs:annotation>
+					<xs:documentation>Кнопка переходит в состояние «невыбранная».
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="setselected">
+				<xs:annotation>
+					<xs:documentation>Устанавливает значение «выбранностей» в соответствии с параметром value.
+						<Param>value (true или false)</Param>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="disable">
+				<xs:annotation>
+					<xs:documentation>
+						Кнопка становится неактивной.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enable">
+				<xs:annotation>
+					<xs:documentation>
+						Кнопка становится активной.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DockSide">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Right" />
+			<xs:enumeration value="Left" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="MeshControl">
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation>
+          Контрол для отображения трехмерных объектов. Размещает в сцене трехмерный объект.
+          Раскрашивает его части, если он это поддерживает.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:extension base="Control">
+        <xs:sequence>
+          <xs:element name="Event" type="Event" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Событие, которое отправляется при клике в трехмерную модель (если она это поддерживает).
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Color" type="ColorARGB" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                Раскрашивает части модели в указанные цвета (если трехмерная модель это поддерживает).
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="Model" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>
+              Название трехмерной модели.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="xAlignType" type="MeshAlignType" default="Center">
+          <xs:annotation>
+            <xs:documentation>
+              Выравнивание меша по оси x
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="yAlignType" type="MeshAlignType" default="Bottom">
+          <xs:annotation>
+            <xs:documentation>
+              Выравнивание меша по оси y
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="zAlignType" type="MeshAlignType" default="Center">
+          <xs:annotation>
+            <xs:documentation>
+              Выравнивание меша по оси z
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="KeepAspect" type="xs:boolean" default="true">
+          <xs:annotation>
+            <xs:documentation>
+              Отвечает за то, будет ли трехмерная модель сохранять свои порпорции, вписываясь в выделенную ей область для размещения.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ColorerMode" type="MeshColorerMode" default="FirstColor">
+          <xs:annotation>
+            <xs:documentation>
+              Режим раскраски меша:
+              Первым цветом
+              По сабмешам
+              По сквозному индексу материала
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="MeshAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Stretch">
+        <xs:annotation>
+          <xs:documentation>
+            Меш растягивается по оси
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Center">
+        <xs:annotation>
+          <xs:documentation>
+            Меш позиционируется по центру оси
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Bottom">
+        <xs:annotation>
+          <xs:documentation>
+            Меш позиционируется по минимуму оси
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Top">
+        <xs:annotation>
+          <xs:documentation>
+            Меш позиционируется по максимуму оси
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MeshColorerMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FirstColor">
+        <xs:annotation>
+          <xs:documentation>
+            красить первым цветом
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WithSubmeshes">
+        <xs:annotation>
+          <xs:documentation>
+            Красить цветом по номеру сабмеша
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ByMaterials">
+        <xs:annotation>
+          <xs:documentation>
+            Красить цветом по сквозному индексу
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,11 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/piechartcontrol" BindingSide="Client">
+
+
+        <MeshControl Model="Meshes/woman_with_chair1" KeepAspect="true" ColorerMode="ByMaterials">
+            <Color A="255" R="255" G="0" B="0"/>
+        </MeshControl>
+
+
+    </Widget>
+</Response>

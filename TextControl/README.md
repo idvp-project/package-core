@@ -7,7 +7,7 @@
 
 Следующий пример демонстрирует TextControl в действии:
 
-![TextControl](.screenshots/TextControl.PNG)
+![TextControl](.screenshots/TextControl.png)
 
 Код примера, находится в файле textcontrol.xml: 
 

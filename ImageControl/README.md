@@ -7,9 +7,9 @@
 
 Следующий пример демонстрирует ImageControl в действии:
 
-![ImageControl](.screenshots/imagecontrol.PNG)
+![ImageControl](.screenshots/ImageControl.png)
 
-Код примера, находится в файле ImageControl.png: 
+Код примера находится в файле imagecontrol.xml: 
 
 ```xml
 <PanelControl ID="ButtonElement">

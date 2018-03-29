@@ -9,6 +9,8 @@ ImageControl имеет возможность независимо растяг
 
 ![](../.screenshots/ImageControl1.png)
 
+Код примера хранится в файле imagecontrol1.xml.
+
 ```xml
 <PanelControl ID="ButtonElement">
   <Transform Width="100%" Height="50%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
@@ -23,6 +25,8 @@ ImageControl имеет возможность независимо растяг
 ## Заливка картинки цветом
 
 Картинка может быть залита сплошным цветом, что задается свойством ImageColorARGB. (Планировалась демонстрация IsColored и домножение на цвет)
+
+Код примера хранится в файле imagecontrol2.xml.
 
 ![](../.screenshots/ImageControl2.png)
 
