@@ -12,7 +12,7 @@
 Код примера, приведенного выше. Файл: 
 
 ```xml
-{% include Widgets/ButtonControl_example.xml %}
+{% include_relative Widgets/ButtonControl_example.xml %}
 ```
 
 ## Свойства компонента:
