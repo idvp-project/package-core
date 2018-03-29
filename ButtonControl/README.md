@@ -12,8 +12,7 @@
 Код примера, приведенного выше. Файл: 
 
 ```xml
-<ButtonControl ID="lightbutton" Skin="create_btn" Width="188" Height="68" Visible="true">
-</ButtonControl>
+{% include Widgets/ButtonControl_example.xml %}
 ```
 
 ## Свойства компонента:
