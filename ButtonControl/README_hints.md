@@ -41,7 +41,7 @@ ToDo:
 
 Для реализации toggle кнопки или кнопки-переключателя, которая меняет свое состояние по клику и вовзращается в исходное по второму клику, применяется следующий прием: создается 2 кнопки, расположенные одна под другой.
 
-![buttoncontrol_toggle_button](Screenshots\buttoncontrol_toggle_button.png)
+![buttoncontrol_toggle_button](Screenshots/buttoncontrol_toggle_button.png)
 
 Пример кода с реализацией toggle кнопки:
 
