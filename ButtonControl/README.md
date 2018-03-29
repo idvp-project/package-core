@@ -57,7 +57,7 @@
 
 ## Рекомендуемые ссылки:
 
-* [Варианты использования ButtonControl](README_usage.md)
-* [Особенности и приемы работы с ButtonControl](README_hints.md)
+* [Варианты использования ButtonControl](usage.md)
+* [Особенности и приемы работы с ButtonControl](hints.md)
 
 
