@@ -7,20 +7,20 @@
 
 Следующий пример демонстрирует ButtonControl в действии:
 
-![ButtonControl](.screenshots/presentation_buttoncontrol_main.PNG)
+![ButtonControl](Screenshots/presentation_buttoncontrol_main.PNG)
 
 Код примера, приведенного выше. Файл: 
 
 ```xml
-{% include_relative .presentations/ButtonControl_example.xml %}
+{% include_relative Widgets/ButtonControl_example.xml %}
 ```
 
 ```xml
-{% include_relative .presentations/ButtonControl_example.xml %}
+{% include_relative Widgets/ButtonControl_example.xml %}
 ```
 
 ```xml
-{% include_relative .presentations/ButtonControl_example.xml %}
+{% include_relative Widgets/ButtonControl_example.xml %}
 ```
 
 ## Свойства компонента:
@@ -57,7 +57,7 @@
 
 ## Рекомендуемые ссылки:
 
-* [Варианты использования ButtonControl](.presentations/README.md)
+* [Варианты использования ButtonControl](README_usage.md)
 * [Особенности и приемы работы с ButtonControl](README_hints.md)
 
 
