@@ -15,6 +15,10 @@
 {% include_relative Widgets/ButtonControl_example.xml %}
 ```
 
+```xml
+{% include_relative Widgets/ButtonControl_example.xml %}
+```
+
 ## Свойства компонента:
 
 | **Свойство**        | **Тип**       | **Описание**                             |
