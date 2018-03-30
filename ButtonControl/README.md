@@ -7,12 +7,12 @@
 
 Следующий пример демонстрирует ButtonControl в действии:
 
-![ButtonControl](.screenshots/presentation_buttoncontrol_main.PNG)
+![ButtonControl](.screenshots/presentation_buttoncontrol_main.png)
 
 Код примера, приведенного выше хранится в файле buttoncontrol.xml: 
 
 ```xml
-{% include_relative .presentations/buttoncontrol.xml %}
+{% include_relative ..presentations/buttoncontrol.xml %}
 ```
 
 ## Свойства компонента:
