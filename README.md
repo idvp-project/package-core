@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Бибилиотека компонентов iDVP package-core
 > Теги: 2D, 3D
 
