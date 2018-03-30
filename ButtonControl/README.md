@@ -12,8 +12,7 @@
 Код примера, приведенного выше хранится в файле buttoncontrol.xml: 
 
 ```xml
-<ButtonControl ID="lightbutton" Skin="create_btn" Width="188" Height="68" Visible="true">
-</ButtonControl>
+{% include_relative .presentations/buttoncontrol.xml %}
 ```
 
 ## Свойства компонента:
