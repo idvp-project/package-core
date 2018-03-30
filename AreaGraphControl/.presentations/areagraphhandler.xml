@@ -1,0 +1,35 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/areagraph/areagraphhandler" BindingSide="Client">
+        <Declare Name="TempParam" Value="[define('TempParam', '')]" />
+
+        <Params>
+            <Param Key="TempParam">
+                <Bind Name="Value" Value="[TempParam]"/>
+            </Param>
+        </Params>
+
+        <SourceCode>
+            <Text>
+
+                newDate = FormatDate(TempParam, 'yyyy-MM-dd', 'dd.MM.yyyy')
+
+                eventHandlers = LuaTable()
+
+                local handler = eventHandlers.add(EventHandler('ChangeTheString'))
+
+                handler.addCommand({id='DateIndicator', name='changetext', params={'TempParam'}})
+
+            </Text>
+        </SourceCode>
+        <Include Path="template/eventhandler"/>
+
+        <Event Name="ChangeTheString">
+            <Params>
+                <Param Key="TempParam">
+                    <Bind Name="Value" Value="[newDate]"/>
+                </Param>
+            </Params>
+        </Event>
+
+    </Widget>
+</Response>

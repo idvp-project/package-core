@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="BaseGraphControl">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Базовая схема для столбчатых диаграмм и графиков.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Control">
+                <xs:sequence>
+                    <xs:element name="Axises" minOccurs="0">
+                        <xs:complexType>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Оси диаграммы (X, Y).
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:sequence>
+                                <xs:element name="Axis" type="Axis" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Ось диаграммы.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Legends" minOccurs="0">
+                        <xs:complexType>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Легенды для отображаемых на диаграмме графиков, столбцов и т.д.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:sequence>
+                                <xs:element name="Legend" type="Legend" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Легенда для отображаемых на диаграмме графиков, столбцов и т.д.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="GraphPoints" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="GraphPoint" type="GraphPoint" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Список точек графика.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SliderValueChanged" minOccurs="0">
+                        <xs:complexType>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Событие, отправляемое при выборе новой подписываемой точки.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:sequence>
+                                <xs:element name="Event" type="Event" minOccurs="0" maxOccurs="unbounded"></xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+					<xs:element name="SliderReleased" type="Event">
+						<xs:annotation>
+							<xs:documentation>
+                                 Событие, отправляемое при отпускании слайдера.
+                            </xs:documentation>
+                        </xs:annotation>
+					</xs:element>
+                </xs:sequence>
+                <xs:attribute name="GraphMode" type="GraphMode">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Устанавливает режим графика "с накоплением" или "без накопления".
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="SelectParamKey" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Названием параметра, в котором будет передаваться тег выбранной точки.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="LegendVisible" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Будет ли отображаться легенда.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Count" type="xs:int" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Количество видимых точек.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Skip" type="xs:int" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Номер первой видимой точки, с которой начнется отображение точек на диаграмме.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="MaxRange" type="xs:int" default="10">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Максимальное количество видимых точек.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="MinRange" type="xs:int" default="999">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Минимальное количество видимых точек.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="ReverseLegend" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Рисовать ли легенду в обратной последовательности.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="DefaultState" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Отобразить на графике все точки ("out"),
+                            либо отобразить его в максимальном масштабе ("in").
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Заголовок графика.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="LegendParamKey" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Имя параметра, в котором передается идентификатор легенды.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="LegendTextParamKey" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Имя параметра, в котором передается подпись для легенды.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="SliderParamKey" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Имя параметра, в котором передается тег точки для установки на нее слайдера.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="NoDataText" type="xs:string" default="н/д">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Параметр для локализации (нет данных)
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Axis">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Ось диаграммы.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence>
+                    <xs:element name="AxisValue" type="AxisValue" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Список засечек на оси.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="Lines" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Отображать ли линии, соответствующие засечкам оси на заднем плане графика.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Slide" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Можно ли перемещаться по данной оси или нет.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Zoom" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Можно ли масштабировать данную ось.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="ToValue" type="xs:float" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Конечное значение на оси.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="FromValue" type="xs:float" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Начальное значение на оси.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Подпись оси.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="AxisType" type="AxisType">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Является ли ось осью X или осью Y.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="AxisValue">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Список засечек на оси.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence/>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Подпись засечки на оси.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Value" type="xs:float" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Значение засечки на оси.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Legend">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Легенда для отображаемых на диаграмме графиков, столбцов и т.д.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence>
+                    <xs:element name="Event" type="Event" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                События клика в легенду.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ColorARGB" type="ColorARGB" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Цвет цветового индикатора легенды.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TextColorARGB" type="ColorARGB" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Цвет текста подписи.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="GraphLineColorARGB" type="ColorARGB" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Цвет линии графика.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="GraphTopColorARGB" type="ColorARGB" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Верхний цвет градиентной заливки области под графиком.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="GraphDownColorARGB" type="ColorARGB" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Нижний цвет градиентной заливки области под графиком.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ColorText" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Название отображаемого показателя.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Text" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Значение отображаемого показателя.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Color" type="Color">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Цветовой идентификатор легенды.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Key" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Ключ для определения соответствия между текущей легендой
+                            и значением графика в GraphPoint.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Skin" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Скин для цветового индикатора легенды.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Enabled" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Активность легенды и связанного с ней графика.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="IsLineHighlighted" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Указывает, будет ли связанная с легендой линия графика визуально выделена.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="UseColorARGB" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Использовать ли настройки цвета графиков из верстки.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="GraphPoint">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Точка графика.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence>
+                    <xs:element name="Event" type="Event" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                            Зарезервирован для хранения события, принадлежащего точке.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Value" type="Value" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Список значений графиков в данной точке оси X.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Argument" type="Argument" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Идентификатор точки на оси X.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="IsWeekEnd" type="xs:boolean" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Признак того, будет ли данная точка считаться как суббота или воскресенье.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Подпись координаты точки.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Value">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Список значений графиков в данной точке оси X.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence/>
+                <xs:attribute name="Tag" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Тэг значения функции.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Подпись значения функции.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Value" type="xs:float" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Значение функции в данной точке для данного ключа.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Key" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Ключ функции.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="IsEmpty" type="xs:boolean">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Существует ли данное значение в данной точке.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Argument">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Идентификатор точки на оси X.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="Bindable">
+                <xs:sequence/>
+                <xs:attribute name="Type" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Тип аргумента.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Tag" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Тэг аргумента.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Title" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Подпись аргумента.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Value" type="xs:float" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Значение аргумента.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Key" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Ключ аргумента.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

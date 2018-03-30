@@ -1,0 +1,201 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/areagraph/areagraphcontrol1" BindingSide="Client">
+
+        <SourceCode>
+            <Text>
+                    DataTable = table.sort(((GraphData or '').result or {}), function (a, b) return (0 > CompareDate(a.report_day, b.report_day, 'yyyy-MM-dd')) end)
+
+                    Finish = Now('yyyy-MM-dd')
+                    Start = AddDay(Finish,-365)
+                    EndDate = Now('yyyy-MM-dd')
+                    StartDate = EndDate
+
+
+                    Legend = {Red = '-', Yellow = '-', Green = '-'}
+                    GraphData = {}
+                    maxSum = 0
+                    currentIndex = 1
+                    currentDate = Start
+                    lastDate = AddDay(Finish, 1)
+
+                    index = 1
+                    EndDateIndex = 0
+                    StartDateIndex = 0
+
+                    repeat
+                        data = DataTable[currentIndex] or ''
+                        Tag = currentDate
+                        if (Tag == EndDate) then
+                            EndDateIndex = index
+                        end
+                        if (Tag == StartDate) then
+                            StartDateIndex = index
+                        end
+
+                        AxisCaption = FormatDate(Tag, 'yyyy-MM-dd', 'dd.MM.yyyy')
+                        if (math.random(1000) > 100) then
+                            Red = math.random(1000)
+                            Yellow = math.random(1000)
+                            Green = math.random(1000)
+                            Empty = false
+                            Legend = {Red = Red, Yellow = Yellow, Green = Green }
+                            if ((Red + Green + Yellow) > maxSum) then
+                                maxSum = Red + Green + Yellow
+                            end
+                        else
+                            Red = 0
+                            Yellow = 0
+                            Green = 0
+                            Empty = true
+                        end
+                        index = index + 1
+                        table.insert(GraphData, {Red = Red, Yellow = Yellow, Green = Green, AxisCaption = AxisCaption, Tag = Tag, Empty = Empty})
+                        currentDate = AddDay(currentDate, 1)
+                    until (lastDate == currentDate)
+
+                    Diff = EndDateIndex - StartDateIndex + 1
+                    SkipCount = StartDateIndex - 1
+                    if (91 > Diff) then
+                        Diff = 91
+                        SkipCount = EndDateIndex - 91
+                    end
+
+                    --                    logWarning("Red: " .. Legend.Red .. " | Yellow: " .. Legend.Yellow .. " | Green: " .. Legend.Green)
+
+                    maxSum = getChartLabel(maxSum, 0, 2, 2).niceMax
+                    if 2 > maxSum then
+                        maxSum = 2
+                    end
+                    AddToGlobalLuaTable('GraphData', 'GraphData')
+
+
+
+            </Text>
+        </SourceCode>
+
+        <PanelControl ID="AreaGraphElement">
+            <Transform Width="100%" Height="20%" Depth="100%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 30% 0%"/>
+
+            <StackPanelControl Orientation="Vertical">
+                <TextControl TextKey="TempParam" ID="DateIndicator" Is3D="false" Size="20" Text="Hello, World!" PixelSize="50" Anchor="MiddleRight" Alignment="Center" >
+                    <Transform Width="30%" Height="30%" Margin="0% 10% 100% 0%" DepthAlignment="Front" Depth="10%" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <ColorARGB A="255" R="255" G="255" B="255"/>
+                    <!--<Bind Name="Text" Value="[backdrop.id]"/>-->
+                </TextControl>
+
+                <AreaGraphControl
+                        ID="graphAreaGraphControl2"
+                        Title="nilh"
+                        LegendVisible="false"
+                        LegendParamKey="LegendKey"
+                        LegendTextParamKey="LegendTextKey"
+                        GraphMode="Summation"
+                        SliderParamKey="TempParam"
+                        Style="GaZProm"
+                        MinRange="90"
+                        MaxRange="366"
+                        Count="91"
+                        NoDataText="-"
+                        InSpeedParamKey="GraphSpeed"
+                        SelectParamKey="EndDate">
+                    <Bind Name="Date2" Value="[FormatDate(StartDate, 'yyyy-MM-dd', 'dd.MM.yyyy')]" Condition="[StartDate ~= EndDate]"/>
+                    <Bind Name="Date" Value="[FormatDate(EndDate, 'yyyy-MM-dd', 'dd.MM.yyyy')]"/>
+                    <Bind Name="Skip" Value="[SkipCount]"/>
+                    <Bind Name="IsInterval" Value="[StartDate ~= EndDate]"/>
+                    <Transform Width="100%" Height="100%" Margin="0% 0% 0% 15%" Depth="10%" DepthAlignment="Back" HorizontalAlignment="Center" />
+
+                    <!-- Задаем оси -->
+                    <Axises>
+                        <Axis AxisType="X" Title="" FromValue="1" Zoom="true" Slide="true" Lines="true">
+                            <Bind Name="ToValue" Value="[#GraphData]"/>
+                            <!--<Bind Name="Count" Value="[#GraphData]"/>-->
+                            <AxisValue>
+                                <Collection Name="data" List="[GraphData]"/>
+                                <Bind Name="Value" Value="[data_index]"/>
+                                <Bind Name="Title" Value="[data.AxisCaption]"/>
+                            </AxisValue>
+                        </Axis>
+                        <Axis AxisType="Y" Title="" FromValue="0" Zoom="false" Slide="false" Lines="true">
+                            <Bind Name="ToValue" Value="[maxSum]"/>
+                            <AxisValue Value="0" Title="0"/>
+                            <AxisValue>
+                                <Bind Name="Value" Value="[maxSum / 2]"/>
+                                <Bind Name="Title" Value="[maxSum / 2]"/>
+                            </AxisValue>
+                            <AxisValue>
+                                <Bind Name="Value" Value="[maxSum]"/>
+                                <Bind Name="Title" Value="[maxSum]"/>
+                            </AxisValue>
+                        </Axis>
+                    </Axises>
+
+                    <!-- Задаем легенду -->
+                    <Legends>
+                        <Legend ColorText="0" Key="Red" Text="" Enabled="true" Skin="invisible" IsLineHighlighted="true" UseColorARGB="true" Color="Red">
+                            <ColorARGB A="255" R="241" G="35" B="34"/>
+                            <GraphLineColorARGB A="255" R="93" G="192" B="0"/>
+                            <GraphTopColorARGB A="255" R="93" G="192" B="0"/>
+                            <GraphDownColorARGB A="255" R="42" G="128" B="0"/>
+                        </Legend>
+                        <Legend ColorText="0" Key="Yellow" Text="" Enabled="true" Skin="invisible" IsLineHighlighted="true" UseColorARGB="true" Color="Yellow">
+                            <ColorARGB A="255" R="241" G="35" B="34"/>
+                            <GraphDownColorARGB A="255" R="160" G="134" B="0"/>
+                            <GraphLineColorARGB A="255" R="164" G="121" B="0"/>
+                            <GraphTopColorARGB A="255" R="228" G="191" B="0"/>
+                        </Legend>
+                        <Legend ColorText="0" Key="Green" Text="" Enabled="true" Skin="invisible" IsLineHighlighted="true" UseColorARGB="true" Color="Green">
+                            <ColorARGB A="255" R="241" G="35" B="34"/>
+                            <GraphDownColorARGB A="255" R="241" G="35" B="34"/>
+                            <GraphLineColorARGB A="255" R="158" G="0" B="13"/>
+                            <GraphTopColorARGB A="255" R="241" G="35" B="34"/>
+                        </Legend>
+                    </Legends>
+
+                    <!-- Наполняем данными график (для этого нам понадобится таблица Lua и положить ее в Collection в верстке, как ниже) -->
+                    <GraphPoints>
+                        <GraphPoint>
+                            <Collection Name="data" List="[GraphData]"/>
+                            <Argument>
+                                <Bind Name="Value" Value="[data_index]"/>
+                                <Bind Name="Tag" Value="[data.Tag]"/>
+                            </Argument>
+
+                            <Value Key="Red">
+                                <Bind Name="IsEmpty" Value="[data.Empty]"/>
+                                <Bind Name="Value" Value="[data.Red]"/>
+                                <Bind Name="Title" Value="[data.Red]"/>
+                            </Value>
+                            <Value Key="Yellow">
+                                <Bind Name="IsEmpty" Value="[data.Empty]"/>
+                                <Bind Name="Value" Value="[data.Yellow]"/>
+                                <Bind Name="Title" Value="[data.Yellow]"/>
+                            </Value>
+                            <Value Key="Green">
+                                <Bind Name="IsEmpty" Value="[data.Empty]"/>
+                                <Bind Name="Value" Value="[data.Green]"/>
+                                <Bind Name="Title" Value="[data.Green]"/>
+                            </Value>
+                        </GraphPoint>
+                    </GraphPoints>
+
+                    <!-- Ивенты с параметрами на запуск воспроизведения графика -->
+                    <PlayStopedEvent Name="TimelinePlay">
+                    </PlayStopedEvent>
+
+                    <!-- Ивенты с параметрами при отпускании одного слайдера -->
+                    <SliderReleased Name="ParamSet">
+                    </SliderReleased>
+
+                    <!-- Ивенты с параметрами при отпускании второго слайдера -->
+                    <Slider2Released Name="ParamSet">
+                    </Slider2Released>
+                </AreaGraphControl>
+            </StackPanelControl>
+
+
+
+        </PanelControl>
+
+
+    </Widget>
+</Response>
