@@ -7,7 +7,7 @@
 
 Следующий пример демонстрирует ButtonControl в действии:
 
-![ButtonControl](.screenshots/presentation_buttoncontrol_main.png)
+![ButtonControl](screenshots/presentation_buttoncontrol_main.png)
 
 Код примера, приведенного выше хранится в файле buttoncontrol.xml: 
 
