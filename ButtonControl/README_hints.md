@@ -6,7 +6,7 @@
 
 1. Графический файл с несколькими вариантами текстур, соответствующие различным свойствам ButtonControl.
 
-![](.screenshots/SKIN_IDVP_comp_01.png)
+![](screenshots/SKIN_IDVP_comp_01.png)
 
 2. Файл skin.xml, содержащий текстурный атлас, определяющий области внутри графического файла, соответствующие определенным состояниям.
 
@@ -58,7 +58,7 @@ ToDo:
 ## Рекомендуемые ссылки:
 
 - [ButtonControl Основные сведения](README.md)
-- [Варианты использования ButtonControl](.presentations/README.md)
+- [Варианты использования ButtonControl](Widgets/README.md)
 
 
 
