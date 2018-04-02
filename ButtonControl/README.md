@@ -49,7 +49,7 @@
 
 ## Рекомендуемые ссылки:
 
-* [Варианты использования ButtonControl](.presentations/README.md)
+* [Варианты использования ButtonControl](Widgets/README.md)
 * [Особенности и приемы работы с ButtonControl](README_hints.md)
 
 
