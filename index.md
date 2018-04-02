@@ -11,7 +11,7 @@
 
 | **Наименование**                         | **Визуальное отображение**               | **Описание**                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| [**ButtonControl**](ButtonControl/README.md) | ![](ButtonControl/.screenshots/presentation_buttoncontrol_main.PNG) | Кнопка предназначена для вызова связанного события при её нажатии пользователем. |
+| [**ButtonControl**](ButtonControl/README.md) | ![](ButtonControl/screenshots/presentation_buttoncontrol_main.PNG) | Кнопка предназначена для вызова связанного события при её нажатии пользователем. |
 | **[ImageControl](ImageControl/README.md)** | ![](ImageControl/.screenshots/ImageControl.png) | Компонент для отображения графических файлов. |
 | **[MeshControl](MeshControl/README.md)** | ![](MeshControl/.screenshots/MeshControl.png) | Компонент для отображения трехмерных объектов. |
 | **[TextControl](TextControl/README.md)** | ![](TextControl/.screenshots/TextControl.png) | Компонент для отображения текста на экране. |
