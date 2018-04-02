@@ -49,10 +49,6 @@
 
 ## Схема компонента:
 
-```xml
-{% include_relative scheme.xml %}
-```
-
 ## Рекомендуемые ссылки:
 
 * [Варианты использования ButtonControl](presentations.md)
