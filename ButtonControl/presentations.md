@@ -13,7 +13,7 @@
 ![](screenshots/presentation1.png)
 
 ```xml
-{% include_relative ../Widgets/presentation1.xml %}
+{% include_relative widgets/presentation1.xml %}
 ```
 
 ## Кнопка-переключатель
@@ -25,7 +25,7 @@
 
 
 ```xml
-{% include_relative ../Widgets/presentation2.xml %}
+{% include_relative widgets/presentation2.xml %}
 ```
 
 ## Кнопка с текстом

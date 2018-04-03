@@ -50,7 +50,7 @@
 ## Схема компонента:
 
 ```xml
-{% include_relative scheme.xml %}
+{% include_relative scheme.xsd %}
 ```
 
 ## Рекомендуемые ссылки:

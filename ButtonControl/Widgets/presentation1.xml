@@ -1,6 +1,5 @@
 <Response>
     <Widget WidgetType="Widget" Name="elements/buttoncontrol" BindingSide="Client">
-        <!--<Declare Name="BackMode" Value="[define('BackMode', 'twodee')]" />-->
         <Declare Name="SelectedCase" Value="[define('SelectedCase', '')]" />
 
         <Params>
