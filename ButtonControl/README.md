@@ -12,7 +12,7 @@
 Код примера, приведенного выше хранится в файле buttoncontrol.xml: 
 
 ```xml
-{% include_relative widgets/presentation.xml %}
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
