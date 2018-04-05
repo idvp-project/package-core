@@ -7,7 +7,7 @@
 
 Эффект трехмерности в кнопке достигается использованием в кнопке текстуры стилизированной под 3D, которая размещается внутри кнопки с помощью дополнительного вложенного компонента ImageControl.
 
-![](screenshots/presentation1.png)
+![](screenshots/no_image.png)
 
 ```xml
 {% include_relative presentations/presentation1.xml %}
