@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="AreaGraphControl">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Компонент для отображения графиков.
+                    Позволяет отображать один или несколько графиков,
+                    так же позволяет отображать графики с накоплением.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="BaseGraphControl">
+              <xs:sequence >
+                <xs:element name="PlayStopedEvent" type="Event" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="InSpeedParamKey" type="xs:string" default="speedParam"/>
+              <xs:attribute name="AllowWaitAtPointWhenPlaying" type="xs:boolean" default="false"/>
+              <xs:attribute name="IsInterval" type="xs:boolean" default="false"/>
+              <xs:attribute name="Date" type="xs:string" />
+              <xs:attribute name="Date2" type="xs:string" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="AreaGraphControlCommand">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="zoomin">
+                <xs:annotation>
+                    <xs:documentation>
+                        Растягивает график, увеличивая масштаб отображения по оси X.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="zoomout">
+                <xs:annotation>
+                    <xs:documentation>
+                        Сжимает график, уменьшаяет масштаб отображения по оси X.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="select">
+                <xs:annotation>
+                    <xs:documentation>
+                        Передвигает точку на оси X,
+                        тег которой соответствует переданному параметру,
+                        на правую границу видимой области.
+                        <Param>@SelectParamKey</Param>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="setlegendstate">
+                <xs:annotation>
+                    <xs:documentation>
+                        Переключает видимость графика,
+                        соответствущего переданному параметру.
+                        <Param>@LegendParamKey</Param>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="setslider">
+                <xs:annotation>
+                    <xs:documentation>
+                        Показывает подписи значений графиков,
+                        соответствующих точке на оси X,
+                        тег которой соответствует переданному параметру.
+                        <Param>@SliderParamKey</Param>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+          <xs:enumeration value="playto">
+            <xs:annotation>
+              <xs:documentation>
+               Проигрывать до определенного момента
+                <Param>@ToDate, @Time</Param>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+            <xs:enumeration value="setlegendtext">
+                <xs:annotation>
+                    <xs:documentation>
+                        Устанавливает переданный в @LegendTextParamKey текст
+                        в качестве подписи для легенды с идентификатором @LegendParamKey.
+                        <Param>@LegendParamKey, @LegendTextParamKey</Param>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
