@@ -5,7 +5,7 @@
 
 ## Основное использование:
 
-Следующий пример демонстрирует MeshControl в действии (женщина на стуле):
+Следующий пример демонстрирует PieChartControl в действии:
 
 ![PieChartControl](screenshots/presentation.png)
 

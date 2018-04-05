@@ -12,7 +12,7 @@
 Код примера, приведенного выше хранится в файле presentation.xml: 
 
 ```xml
-{% include_relative presentations/presentations.xml %}
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:

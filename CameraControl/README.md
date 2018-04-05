@@ -9,12 +9,12 @@
 
 CameraControl отвечает за демонстрацию других компонентов и не имеет собственного визуального отображения:
 
-![CameraControl](screenshots/presentation.png)
+![CameraControl](screenshots/no_image.png)
 
 Код примера использования CameraControl: 
 
 ```xml
-{% include_relative presentations/presentations.xml %}
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:

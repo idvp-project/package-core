@@ -7,7 +7,7 @@
 
 SceneControl создает сцену, в которой располагаются остальные компоненты и не имеет собственного визуального отображения:
 
-![SceneControl](screenshots/presentation.png)
+![SceneControl](screenshots/no_image.png)
 
 Код примера использования presentation.png: 
 
