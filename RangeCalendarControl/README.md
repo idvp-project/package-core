@@ -7,31 +7,10 @@
 
 Следующий пример демонстрирует RangeCalendarControl в действии.
 
-![ButtonControl](.screenshots/RangeCalendarControl.PNG)Код примера, приведенного выше. Файл rangecalendarcontrol.xml. 
+![RangeCalendarControl](screenshots/presentation.png)Код примера, приведенного выше. Файл presentation.xml. 
 
 ```xml
-<StackPanelControl ID="CalendarPanel" Orientation="Vertical" Visible="true">
-  <Transform VerticalAlignment="Center" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" Width="100%" Height="100%"/>
-  <ImageControl ID="11121212" Stretch="true" IsColored="true">
-    <ImageColorARGB A="0" R="21" G="51" B="66"/>
-    <Transform Height="7%" Margin="1% 0% 0% 0%"/>
-  </ImageControl>
-  <NineRectControl Skin="invisible" UseColorARGB="false" Width="100" Height="100" Stretch="true" Untouchable="false">
-      <Transform Width="100%" Height="95%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center"/>
-      <RangeCalendarControl
-          MinDate="2012-12-05"
-          LastLoadDate="2017-01-01"
-          StartDateEventKey="StartDate"
-          EndDateEventKey="EndDate"
-          HorizontalAlignment="Right">
-          <Bind Name="LastLoadDate" Value="['2017-01-01']"/>
-          <Bind Name="MaxDate" Value="[Now('yyyy-MM-dd')]"/>
-          <Bind Name="StartDate" Value="['2012-12-05']"/>
-          <Bind Name="EndDate" Value="['2017-01-01']"/>
-          <Bind Name="ActiveMode" Value="['DateOnly']"/>
-      </RangeCalendarControl>
-  </NineRectControl>
-</StackPanelControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -82,8 +61,12 @@
 
  Отсутствуют.
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования RangeCalendarControl](.presentations/README.md)
-* [Особенности и приемы работы с RangeCalendarControl](README_hints.md)
+* [Варианты использования RangeCalendarControl](presentations.md)
+* [Особенности и приемы работы с RangeCalendarControl](hints.md)
 

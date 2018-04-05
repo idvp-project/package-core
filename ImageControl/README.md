@@ -7,19 +7,12 @@
 
 Следующий пример демонстрирует ImageControl в действии:
 
-![ImageControl](.screenshots/ImageControl.png)
+![ImageControl](screenshots/presentation.png)
 
-Код примера находится в файле imagecontrol.xml: 
+Код примера находится в файле presentation.xml: 
 
 ```xml
-<PanelControl ID="ButtonElement">
-  <Transform Width="100%" Height="50%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
-
-  <ImageControl Src="IDVP_logo_01" Stretch="true">
-    <Transform Height="60%" Width="50%" Depth="10%" DepthAlignment="Front" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-  </ImageControl>
-
-</PanelControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -47,9 +40,13 @@
 | **Base64**        | -             | Изображение передаётся закодированной в Base64 строкой. В **Src** находится кодированная строка. |
 | **PreloadedFile** | -             | Изображение скачивается через сервис получения файлов. В **Src** находится имя скачанного файла. |
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования ImageControl](.presentations/README.md)
-* [Особенности и приемы работы с ImageControl](README_hints.md)
+* [Варианты использования ImageControl](presentations.md)
+* [Особенности и приемы работы с ImageControl](hints.md)
 
 

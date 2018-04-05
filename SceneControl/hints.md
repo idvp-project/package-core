@@ -1,4 +1,4 @@
-# Особенности и приемы работы с ButtonControl
+# Особенности и приемы работы со SceneControl
 
 ## Использование свойства skin для различных состояний кнопки
 
@@ -35,12 +35,10 @@ ToDo:
   </Resource>
 ```
 
-
-
 ## Рекомендуемые ссылки:
 
-- [ButtonControl Основные сведения](README.md)
-- [Варианты использования ButtonControl](presentations.md)
+- [SceneControl Основные сведения](README.md)
+- [Варианты использования SceneControl](presentations.md)
 
 
 

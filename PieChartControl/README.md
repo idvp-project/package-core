@@ -7,20 +7,12 @@
 
 Следующий пример демонстрирует MeshControl в действии (женщина на стуле):
 
-![PieChartControl](.screenshots/PieChartControl.PNG)
+![PieChartControl](screenshots/presentation.png)
 
-Код примера, приведенного выше. Файл piechartcontrol.xml.
+Код примера, приведенного выше. Файл presentation.xml.
 
 ```xml
-<PieChartControl ID="RedGreenPie" Style="Gazprombank" Radius="1" Static="false">
-    <Transform Width="100%" Height="10%"/>
-    <PieChartSector Value="80">
-         <Color A="255" R="96" G="204" B="20"/>
-    </PieChartSector>
-    <PieChartSector Value="20">
-         <Color A="255" R="213" G="11" B="15"/>
-    </PieChartSector>
-</PieChartControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -64,8 +56,12 @@
 
  Отсутствуют.
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования PieChartControl](.presentations/README.md)
-* [Особенности и приемы работы с PieChartControl](README_hints.md)
+* [Варианты использования PieChartControl](presentations.md)
+* [Особенности и приемы работы с PieChartControl](hints.md)
 

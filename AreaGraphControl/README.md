@@ -7,13 +7,12 @@
 
 Следующий пример демонстрирует AreaGraphControl в действии:
 
-![AreaGraphControl](.screenshots/AreaGraphControl.png)
+![AreaGraphControl](screenshots/presentation.png)
 
-Код примера, приведенного выше хранится в файле AreaGraphControl.xml: 
+Код примера, приведенного выше хранится в файле presentation.xml: 
 
 ```xml
-<ButtonControl ID="lightbutton" Skin="create_btn" Width="188" Height="68" Visible="true">
-</ButtonControl>
+{% include_relative presentations/presentations.xml %}
 ```
 
 ## Свойства компонента:
@@ -37,9 +36,15 @@
 | **setslider**      | @SliderParamKey                      | Показывает подписи значений графиков, соответствующих точке на оси X, тег которой соответствует переданному параметру. |
 | **setlegendtext**  | @LegendParamKey, @LegendTextParamKey | Устанавливает переданный в @LegendTextParamKey текст в качестве подписи для легенды с идентификатором @LegendParamKey. |
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
+
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования AreaGraphControl](.presentations/README.md)
-* [Особенности и приемы работы с AreaGraphControl](README_hints.md)
+* [Варианты использования AreaGraphControl](presentations.md)
+* [Особенности и приемы работы с AreaGraphControl](hints.md)
 
 

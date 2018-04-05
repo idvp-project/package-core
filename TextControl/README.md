@@ -7,15 +7,12 @@
 
 Следующий пример демонстрирует TextControl в действии:
 
-![TextControl](.screenshots/TextControl.png)
+![TextControl](screenshots/presentation.png)
 
-Код примера, находится в файле textcontrol.xml: 
+Код примера, находится в файле presentation.png: 
 
 ```xml
-<TextControl Is3D="false" Size="20" Text="Hello, World!" PixelSize="50" Anchor="MiddleCenter" Alignment="Center" >
-  <Transform Width="80%" Height="80%" Margin="0% 0% 0% 0%" DepthAlignment="Front" Depth="10%" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-  <ColorARGB A="255" R="8" G="9" B="15"/>
-</TextControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -48,9 +45,13 @@
 | -------------- | ------------- | --------------------------------- |
 | **changetext** | TextKey       | Изменение текста.                 |
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования TextControl](.presentations/README.md)
-* [Особенности и приемы работы с TextControl](README_hints.md)
+* [Варианты использования TextControl](presentations.md)
+* [Особенности и приемы работы с TextControl](hints.md)
 
 

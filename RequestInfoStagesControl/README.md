@@ -7,63 +7,10 @@
 
 Следующий пример демонстрирует RequestInfoStagesControl в действии:
 
-![RequestInfoStagesControl](.screenshots/RequestInfoStagesControl.png)Код примера хранится в файле RequestInfoStagesControl.xml (необходимо определиться с системой хранения стилей, например сейчас подложка под +4 и боковые белые полоски хранятся в проекте газпром и не попали в сборку каталога, так же перепутаны шрифты).
+![RequestInfoStagesControl](screenshots/presentation.png)Код примера хранится в файле presentation.xml (необходимо определиться с системой хранения стилей, например сейчас подложка под +4 и боковые белые полоски хранятся в проекте газпром и не попали в сборку каталога, так же перепутаны шрифты).
 
 ```xml
-<RequestInfoStagesControl
-                          ParameterName="Id"
-                          Padding="0.005"
-                          RelativeColumnOffset="0.005"
-                          ProcessCondition="InTime"
-                          Duration="38"
-                          Overtime="4"
-                          LeftText="01.02.03"
-                          RightText="04.05.06">
-  <ProcessStagesList>
-    <ProcessStage
-                  Id="1"
-                  Name="Этап сдан вовремя"
-                  StandardTime="1"
-                  ActualTime="1"
-                  StageCondition="InTime"
-                  StageModelId="1"/>
-    <ProcessStage
-                  Id="2"
-                  Name="На этапе получен отказ"
-                  StandardTime="7"
-                  ActualTime="5"
-                  StageCondition="Denied"
-                  StageModelId="2"/>
-    <ProcessStage
-                  Id="3"
-                  Name="Ещё один сданный вовремя этап"
-                  StandardTime="14"
-                  ActualTime="10"
-                  StageCondition="InTime"
-                  StageModelId="3"/>
-    <ProcessStage
-                  Id="4"
-                  Name="Потрачено"
-                  StandardTime="10"
-                  ActualTime="12"
-                  StageCondition="DeadlineExceededWarning"
-                  StageModelId="4"/>
-    <ProcessStage
-                  Id="5"
-                  Name="Полный потрачено"
-                  StandardTime="1"
-                  ActualTime="1"
-                  StageCondition="DeadlineExeededCaution"
-                  StageModelId="5"/>
-    <ProcessStage
-                  Id="6"
-                  Name="Этап ещё не начался"
-                  StandardTime="1"
-                  ActualTime="3"
-                  StageCondition="DoesntStartYet"
-                  StageModelId="9"/>
-  </ProcessStagesList>
-</RequestInfoStagesControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -106,8 +53,12 @@
 
  Отсутствуют.
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования RequestInfoStagesControl](.presentations/README.md)
-* [Особенности и приемы работы с RequestInfoStagesControl](README_hints.md)
+* [Варианты использования RequestInfoStagesControl](presentations.md)
+* [Особенности и приемы работы с RequestInfoStagesControl](hints.md)
 

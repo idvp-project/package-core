@@ -7,14 +7,12 @@
 
 Следующий пример демонстрирует MeshControl в действии:
 
-![MeshControl](.screenshots/MeshControl.png)
+![MeshControl](screenshots/presentation.png)
 
-Код примера хранится в файле meshcontrol.xml.
+Код примера хранится в файле presentation.xml:
 
 ```xml
-<MeshControl Model="Meshes/woman_with_chair1" KeepAspect="true">
-    <Color A="255" R="200" G="200" B="200"/>
-</MeshControl>
+{% include_relative presentations/presentation.xml %}
 ```
 
 ## Свойства компонента:
@@ -36,8 +34,12 @@
 
  Отсутствуют.
 
+## Схема компонента:
+
+{% include_relative scheme.xsd %}
+
 ## Рекомендуемые ссылки:
 
-* [Варианты использования MeshControl](.presentations/README.md)
-* [Особенности и приемы работы с MeshControl](README_hints.md)
+* [Варианты использования MeshControl](presentations.md)
+* [Особенности и приемы работы с MeshControl](hints.md)
 

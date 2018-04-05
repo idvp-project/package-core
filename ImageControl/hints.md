@@ -1,6 +1,6 @@
-# Особенности и приемы работы с ButtonControl
+# Особенности и приемы работы с ImageControl
 
-## Использование свойства skin для различных состояний кнопки
+## Загрузка из локального файла
 
 Визуальное отображение кнопки (текстура), задается свойством skin и хранится в 2х файлах:
 
@@ -37,10 +37,30 @@ ToDo:
 
 
 
+## Загрузка из 64base
+
+Для реализации toggle кнопки или кнопки-переключателя, которая меняет свое состояние по клику и вовзращается в исходное по второму клику, применяется следующий прием: создается 2 кнопки, расположенные одна под другой.
+
+![buttoncontrol_toggle_button](C:\Users\dmilenkiy\Documents\demo-component-layout-test\ButtonControl\.screenshots\buttoncontrol_toggle_button.png)
+
+Пример кода с реализацией toggle кнопки:
+
+```xml
+<ButtonControl ID="lightbutton" Skin="slider_on_off" Width="188" Toggle="true" Height="68" Visible="true">
+      <Transform Depth="40%" DepthAlignment="Front"/>
+</ButtonControl>
+```
+
+Видно, что свойство Toggle="true", что запускает кнопку в режиме переключатель. Это обеспечивает переключение скинов при нажатии. Для того, чтобы скины переключались их необходимо подготавливать и хранить в формате описанном выше в параграфе "Использование свойства skin для различных состояний кнопки".
+
+## Загрузка по ссылке 
+
+
+
 ## Рекомендуемые ссылки:
 
-- [ButtonControl Основные сведения](README.md)
-- [Варианты использования ButtonControl](presentations.md)
+- [ImageControl Основные сведения](README.md)
+- [Варианты использования ImageControl](presentations.md)
 
 
 

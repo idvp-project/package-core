@@ -9,10 +9,10 @@
 
 ![ButtonControl](screenshots/presentation.png)
 
-Код примера, приведенного выше хранится в файле buttoncontrol.xml: 
+Код примера, приведенного выше хранится в файле presentations.xml: 
 
 ```xml
-{% include_relative presentations/presentation.xml %}
+{% include_relative presentations/presentations.xml %}
 ```
 
 ## Свойства компонента:
