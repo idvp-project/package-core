@@ -2,7 +2,7 @@
     <Widget WidgetType="Widget" Name="meshcontrol" BindingSide="Client">
 
 
-        <PieChartControl ID="RedGreenPie" Style="Gazprombank" Radius="1" Static="false">
+        <PieChartControl ID="RedGreenPie" Style="Bank" Radius="1" Static="false">
             <Transform Width="100%" Height="10%"/>
             <PieChartSector Value="80">
                 <Color A="255" R="96" G="204" B="20"/>

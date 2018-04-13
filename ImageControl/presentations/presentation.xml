@@ -5,7 +5,7 @@
         <PanelControl ID="ButtonElement">
             <Transform Width="100%" Height="50%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0% 0% 15% 0%"/>
 
-            <ImageControl Src="IDVP_logo_01" Stretch="true">
+            <ImageControl Src="IDVP_logo_01" Stretch="false">
                 <Transform Height="60%" Width="50%" Depth="10%" DepthAlignment="Front" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </ImageControl>
 

@@ -1,6 +1,6 @@
 # Варианты использования PieChartControl 
 
-## PieChartControl на 10 секторов 
+## Размеры секторов PieChartControl берутся из таблицы
 
 ![](screenshots/presentation1.png)
 

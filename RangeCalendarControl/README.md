@@ -7,7 +7,9 @@
 
 Следующий пример демонстрирует RangeCalendarControl в действии.
 
-![RangeCalendarControl](screenshots/presentation.png)Код примера, приведенного выше. Файл presentation.xml. 
+![RangeCalendarControl](screenshots/presentation.png)
+
+Код примера, приведенного выше. Файл presentation.xml. 
 
 ```xml
 {% include_relative presentations/presentation.xml %}
@@ -17,8 +19,7 @@
 
 | **Свойство**                  | **Тип**                                  | **Описание**                             |
 | ----------------------------- | ---------------------------------------- | ---------------------------------------- |
-| **RangeCalendarControl**      | ****                                     | Список элементов календаря.              |
-| **DateSelectedEvent**         | **Event**                                |                                          |
+| **DateSelectedEvent**         | **Event**                                | Событие выбора даты или периода.         |
 | **MonthsLocalization**        | **CalendarRangeSelectorMonthsLocalizationData** |                                          |
 | **DaysLocalization**          | **CalendarRangeSelectorDaysLocalizationData** |                                          |
 | **QuarterLocalization**       | **CalendarRangeSelectorQuarterLocalizationData** |                                          |
@@ -63,7 +64,9 @@
 
 ## Схема компонента:
 
+```xml
 {% include_relative scheme.xsd %}
+```
 
 ## Рекомендуемые ссылки:
 

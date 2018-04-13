@@ -15,6 +15,8 @@
 {% include_relative presentations/presentation.xml %}
 ```
 
+В теге <ButtonControl> используются свойтсва ID и Visible, которые наследуются от базово для всех компонента Control.
+
 ## Свойства компонента:
 
 | **Свойство**        | **Тип**       | **Описание**                             |

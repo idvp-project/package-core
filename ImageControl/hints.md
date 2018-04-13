@@ -1,47 +1,54 @@
 # Особенности и приемы работы с ImageControl
 
-## Загрузка из локального файла
+## Загрузка картинки из локального файла или по URL ссылке
 
-Визуальное отображение кнопки (текстура), задается свойством skin и хранится в 2х файлах:
+Кроме стандартного способа «зашить» картинки в приложение при сборке, их также можно подтянуть из собранного приложения как по url так и из локальной папки. 
 
-1. Графический файл с несколькими вариантами текстур, соответствующие различным свойствам ButtonControl.
+### URL
 
-![](screenshots/SKIN_IDVP_comp_01.png)
+Например мы используем картинку, которая находится по ссылке https://i.ytimg.com/vi/iKz0HiS7tQk/maxresdefault.jpg . 
 
-2. Файл skin.xml, содержащий текстурный атлас, определяющий области внутри графического файла, соответствующие определенным состояниям.
-
-```xml
-  <Resource type="ResourceSkin" name="main_btn" size="85 85" texture="SKIN_IDVP_comp_01.png">
-        <BasisSkin type="SubSkin" offset="0 0 85 85" align="Stretch">
-            <State name="normal" offset="0 0 85 85"/>
-            <State name="pushed" offset="86 0 85 85"/>
-        </BasisSkin>
-  </Resource>
-```
-
-После того, как текстуры определены, при смене состояния кнопки автоматически меняется и текстура соответсвующая этому состоянию.
-
-ToDo:
-
-1. нужно вставить реальный код для кнопки и описать почему выше <State name="pushed").
-2. Исправить растяжение скинов как в тоггле
+Для этого указываем:
 
 ```xml
-  <Resource type="ResourceSkin" name="main_btn" size="85 85" texture="SKIN_IDVP_comp_01.png">
-        <BasisSkin type="SubSkin" offset="0 0 85 85" align="Stretch">
-            <State name="normal" offset="0 0 85 85"/>
-            <State name="pushed" offset="86 0 85 85"/>
-        </BasisSkin>
-  </Resource>
+<BinaryDataSource Address=" https://i.ytimg.com/vi/iKz0HiS7tQk"Name="maxresdefault" 
+                  Code="maxresdefault.jpg" 
+ /> 
 ```
 
+А сам компонент ImageControl при этом загружается следующим образом:
 
+```xml
+<ImageControl Src="maxresdefault" Stretch="false" SourceType="PreloadedFile"> 
+</ImageControl>
+```
 
-## Загрузка из 64base
+### Локальная папка
 
-Для реализации toggle кнопки или кнопки-переключателя, которая меняет свое состояние по клику и вовзращается в исходное по второму клику, применяется следующий прием: создается 2 кнопки, расположенные одна под другой.
+Этот способ используется только в случае, если визуальные шаблоны скопированы локально.
 
-![buttoncontrol_toggle_button](C:\Users\dmilenkiy\Documents\demo-component-layout-test\ButtonControl\.screenshots\buttoncontrol_toggle_button.png)
+Размещаем рисунок в папке Templates\resources\ . При копировании картинки в папку необходимо удалить окончание, т.е. maxresdefault.jpg станетTemplates\resources\maxresdefault .
+
+Затем:
+
+```xml
+<BinaryDataSource Name="maxresdefault" 
+Code="maxresdefault"
+/>
+```
+
+А сам компонент ImageControl при этом загружается следующим образом:
+
+```xml
+<ImageControl Src="maxresdefault" Stretch="false" SourceType="PreloadedFile"> 
+</ImageControl>
+```
+
+## Хранение картинок в тексте верстки и загрузка их в 64base
+
+Существует возможность хранения картинок прямо в тексте верстки. Это может быть удобным в некоторых случаях для небольших изображений.
+
+В таком случае необходимо, чтобы картинка была в формате .png, и указать SourceType = “Base64”. 
 
 Пример кода с реализацией toggle кнопки:
 
@@ -52,10 +59,6 @@ ToDo:
 ```
 
 Видно, что свойство Toggle="true", что запускает кнопку в режиме переключатель. Это обеспечивает переключение скинов при нажатии. Для того, чтобы скины переключались их необходимо подготавливать и хранить в формате описанном выше в параграфе "Использование свойства skin для различных состояний кнопки".
-
-## Загрузка по ссылке 
-
-
 
 ## Рекомендуемые ссылки:
 

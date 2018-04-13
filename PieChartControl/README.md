@@ -9,7 +9,7 @@
 
 ![PieChartControl](screenshots/presentation.png)
 
-Код примера, приведенного выше. Файл presentation.xml.
+Код примера, приведенного выше. 
 
 ```xml
 {% include_relative presentations/presentation.xml %}
@@ -17,40 +17,28 @@
 
 ## Свойства компонента:
 
-```xml
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:complexType name="PieChartControl">
-        <xs:complexContent>
-            <xs:extension base="Control">
-                <xs:sequence>
-                    <xs:element name="Event" type="Event" minOccurs="0" />
-                    <xs:element name="PieChartSector" type="PieChartSector" minOccurs="0" maxOccurs="unbounded" />
-                </xs:sequence>
-                <xs:attribute name="Radius" type="xs:float" use="required" />
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="PieChartSector">
-        <xs:complexContent>
-            <xs:extension base="ColorSector">
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-</xs:schema>
-```
-
 | **Свойство**        | **Тип**            | **Описание**                             |
 | ------------------- | ------------------ | ---------------------------------------- |
-| **PieChartControl** |                    | Список секторов.                         |
 | **Event**           | **Event**          | Событие, которое отправляется при клике на сектор. |
-| **PieChartSector**  | **PieChartSector** | Комплексный тип, который является расширением типа ColorSector. |
+| **PieChartSector**  | **PieChartSector** | Сектор (список).                         |
 | **Radius**          | float              | Общий радиус компонента.                 |
+
+#### Свойства PieChartSector:
+
+| Свойство          | Тип          | Описание                                 |
+| ----------------- | ------------ | :--------------------------------------- |
+| **Value**         | float        | Размер сектора в процентах.              |
+| **Color**         | **ColorARGB**| Цвет сектора включенного.                |
+| **ColorDisabled** | **ColorARGB**| Цвет сектора выключенного.               |
+| **enablesector**  | **команда**  | Включает сектор.                         |
+| **disablesector** | **команда**  | Выключает сектор.                        |
+
 
 ## События:
 
 | **Название события** | **Условия возникновения**                | **Параметры** |
 | -------------------- | ---------------------------------------- | ------------- |
-| **Event**            | Клик по трехмерной модели (если трехмерная модель это поддерживает). | -             |
+| **Event**            | Клик на секторе.                         | -             |
 
 ## Команды:
 
@@ -58,7 +46,9 @@
 
 ## Схема компонента:
 
+```xml
 {% include_relative scheme.xsd %}
+```
 
 ## Рекомендуемые ссылки:
 

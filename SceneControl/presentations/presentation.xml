@@ -1,0 +1,30 @@
+<SceneControl HasLight="true" BackgroundVisible="true" Layer="" Width="100" Height="100" Depth="100">
+        <Transform HorizontalAlignment="Left" Width="100%" Height="100%"/>
+  <SceneNodeControl X="50" Y="20" Z="0" Width="1" Height="1" Depth="1">
+   <CameraControl ID="cameraControl"
+                           TargetOffsetX = "0"
+                           TargetOffsetY  = "-10"
+                           TargetOffsetZ  = "0"
+                           Distance = "100"
+                           MaxDistance = "100"
+                           MinDistance = "100"
+                           XSpeed = "200.0"
+                           YSpeed = "200.0"
+                     YMinLimit = "0"
+                           YMaxLimit = "20"
+                           XMinLimit = "-50"
+                           XMaxLimit = "50"
+                           ZoomRate = "40"
+                           PanSpeed = "0.3"
+                           DisableCameraAnimation = "true"
+                           ZoomDampening = "5.0"
+                           XDeg = "0"
+                           YDeg  = "15"
+                           Fov = "50"/>
+  </SceneNodeControl>
+  <SceneNodeControl X="25" Y="90" Z="25" Width="50" Height="40" Depth="50">
+         <MeshControl Model="WhiteClock">
+       <Transform Width="100%" Height="100%" />
+   </MeshControl>
+  </SceneNodeControl>
+</SceneControl>

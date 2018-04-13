@@ -4,18 +4,11 @@
         <PanelControl ID="CalendarElement">
             <Transform Width="17%" Height="80%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3% 0% 0% 0%"/>
 
-            <!--<ImageControl Src="Calendar_01" Stretch="true" >-->
-            <!--<Transform Width="100%" Height="100%" Depth="10%" HorizontalAlignment="Center"/>-->
-            <!--</ImageControl>-->
-
             <StackPanelControl ID="CalendarPanel" Orientation="Vertical" Visible="true">
-                <!--<Transform Margin="0% 1.8% 0% 0%" VerticalAlignment="Top" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Right" Width="16%" Height="570%"/>-->
                 <Transform VerticalAlignment="Center" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center" Width="100%" Height="100%"/>
                 <ImageControl ID="11121212" Stretch="true" IsColored="true">
-                    <!--<ImageColorARGB A="255" R="21" G="51" B="66"/>-->
                     <ImageColorARGB A="0" R="21" G="51" B="66"/>
                     <Transform Height="7%" Margin="1% 0% 0% 0%"/>
-                    <!--<Transform Height="8.2%" Margin="2.3% 0% 0% 0%"/>-->
                 </ImageControl>
                 <NineRectControl Skin="invisible" UseColorARGB="false" Width="100" Height="100" Stretch="true" Untouchable="false">
                     <Transform Width="100%" Height="95%" Depth="10%" DepthAlignment="Front" HorizontalAlignment="Center"/>
@@ -25,27 +18,11 @@
                             StartDateEventKey="StartDate"
                             EndDateEventKey="EndDate"
                             HorizontalAlignment="Right">
-                        <!--<Transform Width="97.5%" DepthAlignment="Front"/>-->
                         <Bind Name="LastLoadDate" Value="['2017-01-01']"/>
-                        <!--<Bind Name="LastLoadDate" Value="[Now('yyyy-MM-dd')]"/>-->
                         <Bind Name="MaxDate" Value="[Now('yyyy-MM-dd')]"/>
                         <Bind Name="StartDate" Value="['2012-12-05']"/>
                         <Bind Name="EndDate" Value="['2017-01-01']"/>
                         <Bind Name="ActiveMode" Value="['DateOnly']"/>
-                        <!--<DateSelectedEvent>-->
-                        <!--<Bind Name="Name" Value="[CalendarEvent]"/>-->
-                        <!--<Params>-->
-                        <!--&lt;!&ndash;<Param Key="HistoryClear" Value="true" Condition="[CalendarEvent == 'ScreenFourth']"/>&ndash;&gt;-->
-                        <!--<Param Key="HistoryClear" Value="true" Condition="[CalendarEvent == 'ScreenFourth' or CalendarEvent == 'ScreenThird' or CalendarEvent == 'ScreenSecond' or CalendarEvent == 'ScreenFirst']"/>-->
-                        <!--&lt;!&ndash;<Param Key="NeedRedrawGraph" Value="false"/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<Param Key="Date">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<Bind Name="Value" Value="[StartDate]"/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</Param>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<Param Key="Date2">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<Bind Name="Value" Value="[EndDate]"/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</Param>&ndash;&gt;-->
-                        <!--</Params>-->
-                        <!--</DateSelectedEvent>-->
                     </RangeCalendarControl>
                 </NineRectControl>
             </StackPanelControl>

@@ -2,7 +2,7 @@
 
 Внешний вид RangeCalendarControl определяется набором графических ресурсов, которые загружены в него.
 
-## Темный RangeCalendarControl на светлом фоне 
+## RangeCalendarControl с темно-зелеными кнопками на светло-зеленом фоне 
 
 ![](screenshots/presentation1.png)
 

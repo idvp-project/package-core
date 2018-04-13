@@ -1,0 +1,22 @@
+<CameraControl ID="cameraControl1"
+               TargetOffsetX = "0"
+               TargetOffsetY  = "-10"
+               TargetOffsetZ  = "0"
+               Distance = "100"
+               MaxDistance = "10"
+               MinDistance = "500"
+               XSpeed = "200.0"
+               YSpeed = "200.0"
+               YMinLimit = "0"
+               YMaxLimit = "20"
+               XMinLimit = "-50"
+               XMaxLimit = "50"
+               ZoomRate = "40"
+               PanSpeed = "0.3"
+               ZoomDampening = "5.0"
+               XDeg = "0"
+               YDeg  = "15"
+               Fov = "50">
+  <CameraOrientationPresets PresetID="id01" Distance="15" />
+  <CameraOrientationPresets PresetID="id02" Distance="150" />
+</CameraControl>

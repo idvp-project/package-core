@@ -5,16 +5,18 @@
 
 Данная библиотека предоставляется всем разработчикам на платформе iDVP, также она включена в тестовый-доступ ареднаторов.
 
-## Список компонентов:
+## Список компонентов
 
-Комментарий: Желательно, чтобы данная таблица формировалась автоматически, так как все ссылки на картинки и описания унифицированы и используют наименования контрола в названии.
-
-| **Наименование**                             | **Визуальное отображение**                     | **Описание**                                                 |
-| -------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| **[ButtonControl](ButtonControl/README.md)** | ![ButtonControl](screenshots/presentation.png) | Кнопка предназначена для вызова связанного события при её нажатии пользователем. |
-| **[ImageControl](ImageControl/README.md)**   | ![ImageControl](screenshots/presentation.png)  | Компонент для отображения графических файлов.                |
-| **[MeshControl](MeshControl/README.md)**     | ![MeshControl](screenshots/presentation.png)   | Компонент для отображения трехмерных объектов.               |
-| **[TextControl](TextControl/README.md)**     | ![TextControl](screenshots/presentation.png)   | Компонент для отображения текста на экране.                  |
-| **[CameraControl](CameraControl/README.md)** | ![CameraControl](screenshots/presentation.png) | Компонент для вывода на экран трехмерных сцен и управления камерой. |
-| **[SceneControl](SceneControl/README.md)**   | ![SceneControl](screenshots/presentation.png)  | Компонент, создающий трехмерную сцену.                       |
+| **Наименование**                         | **Визуальное отображение** | **Описание**                             |
+| ---------------------------------------- | -------------------------- | ---------------------------------------- |
+| **[AreaGraphControl](AreaGraphControl/README.md)** |                            | Компонент для отображения графиков, демонстрирующих развитие трендов во времени. |
+| **[ButtonControl](ButtonControl/README.md)** |                            | Кнопка предназначена для вызова связанного события при её нажатии пользователем. |
+| **[CameraControl](CameraControl/README.md)** |                            | Компонент для вывода на экран трехмерных сцен и управления камерой |
+| **[ImageControl](ImageControl/README.md)** |                            | Компонент для отображения графических файлов. |
+| **[PieChartControl](MeshControl/README.md)** |                            | Компонент для отображения трехмерных объектов. |
+| **[MeshControl](PieChartControl/README.md)** |                            | Компонент для создания круговой диаграммы. |
+| **[RangeCalendarControl](RangeCalendarControl/README.md)** |                            | Компонент для выбора даты или временного периода на календаре. |
+| **[RequestInfoStagesControl](RequestInfoStagesControl/README.md)** |                            | Визуальный компонент для отображения информации о состоянии выполнения KPI многоэтапного процесса в разрезе этапов. |
+| **[SceneControl](SceneControl/README.md)** |                            | Компонент, создающий трехмерную сцену.   |
+| **[TextControl](TextControl/README.md)** |                            | Компонент для отображения текста на экране. |
 
