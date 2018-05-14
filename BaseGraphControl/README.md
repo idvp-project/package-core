@@ -165,7 +165,9 @@ Bindable
 
 ## Схема компонента:
 
+```xml
 {% include_relative scheme.xsd %}
+```
 
 
 
