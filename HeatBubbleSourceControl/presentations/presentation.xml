@@ -1,0 +1,2859 @@
+<Response>
+    <Widget WidgetType="Widget" Name="elements/heatmapoperative/heatmapoperativecontrol" BindingSide="Client">
+        <Declare Name="SelectedCase" Value="[define('SelectedCase', '')]" />
+
+        <Params>
+            <Param Key="SelectedCase">
+                <Bind Name="Value" Value="[SelectedCase]"/>
+            </Param>
+        </Params>
+
+        <SourceCode>
+
+            <Text>
+
+                function getnEx (t)
+                    local max = 0
+                    for k,v in pairs(t) do
+                        if type(k) == "number" and k > max then
+                            max = k
+                        end
+                    end
+                    return max
+                end
+
+                dataTable = {
+                        rows = {
+                            {
+                                vdim = "ИВАНОВ",
+                                vdim_id = 0,
+                                vdim_rank = 1
+                            },
+                            {
+                                vdim = "ПЕТРОВ",
+                                vdim_id = 1,
+                                vdim_rank = 2
+                            },
+                            {
+                                vdim = "СИДОРОВ",
+                                vdim_id = 2,
+                                vdim_rank = 3
+                            }
+                        },
+                        columns = {
+                            {
+                                hdim = "МАШИНОСТРОЕНИЕ",
+                                hdim_id = 0,
+                                hdim_rank = 1
+                            },
+                            {
+                                hdim = "СВЯЗЬ",
+                                hdim_id = 1,
+                                hdim_rank = 2
+                            },
+                            {
+                                hdim = "СТРОИТЕЛЬСТВО",
+                                hdim_id = 2,
+                                hdim_rank = 3
+                            },
+                            {
+                                hdim = "ТОРГОВЛЯ",
+                                hdim_id = 3,
+                                hdim_rank = 4
+                            },
+                            {
+                                hdim = "ТРАНСПОРТ",
+                                hdim_id = 4,
+                                hdim_rank = 5
+                            }
+                        },
+                        result = {
+                            {
+                                {
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1001,
+                                        company_name = "КОНТРАГЕНТ 12",
+                                        size = 0.96,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1002,
+                                        company_name = "КОНТРАГЕНТ 11",
+                                        size = 0.53,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1003,
+                                        company_name = "КОНТРАГЕНТ 16",
+                                        size = 0.48,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1004,
+                                        company_name = "КОНТРАГЕНТ 12",
+                                        size = 0.61,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1005,
+                                        company_name = "КОНТРАГЕНТ 13",
+                                        size = 0.68,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1006,
+                                        company_name = "КОНТРАГЕНТ 10",
+                                        size = 0.67,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1007,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.62,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1008,
+                                        company_name = "КОНТРАГЕНТ 11",
+                                        size = 0.88,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1009,
+                                        company_name = "КОНТРАГЕНТ 16",
+                                        size = 0.35,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1010,
+                                        company_name = "КОНТРАГЕНТ 19",
+                                        size = 0.36,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1011,
+                                        company_name = "КОНТРАГЕНТ 11",
+                                        size = 0.41,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1012,
+                                        company_name = "КОНТРАГЕНТ 17",
+                                        size = 0.71,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1013,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.6,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1014,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.6,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1015,
+                                        company_name = "КОНТРАГЕНТ 11",
+                                        size = 0.64,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1016,
+                                        company_name = "КОНТРАГЕНТ 13",
+                                        size = 0.65,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1017,
+                                        company_name = "КОНТРАГЕНТ 19",
+                                        size = 0.62,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1018,
+                                        company_name = "КОНТРАГЕНТ 13",
+                                        size = 0.83,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1019,
+                                        company_name = "КОНТРАГЕНТ 15",
+                                        size = 0.43,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1020,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.56,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1021,
+                                        company_name = "КОНТРАГЕНТ 15",
+                                        size = 0.62,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 1,
+                                        hdim_rank = 1,
+                                        project_id = 1022,
+                                        company_name = "КОНТРАГЕНТ 17",
+                                        size = 0.95,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 1,
+                                        hdim_rank = 2,
+                                        project_id = 1023,
+                                        company_name = "КОНТРАГЕНТ 29",
+                                        size = 0.88,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 1,
+                                        hdim_rank = 2,
+                                        project_id = 1024,
+                                        company_name = "КОНТРАГЕНТ 26",
+                                        size = 0.78,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 1,
+                                        hdim_rank = 2,
+                                        project_id = 1025,
+                                        company_name = "КОНТРАГЕНТ 24",
+                                        size = 0.63,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 1,
+                                        hdim_rank = 2,
+                                        project_id = 1026,
+                                        company_name = "КОНТРАГЕНТ 24",
+                                        size = 0.75,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1027,
+                                        company_name = "КОНТРАГЕНТ 38",
+                                        size = 0.98,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1028,
+                                        company_name = "КОНТРАГЕНТ 38",
+                                        size = 0.68,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1029,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.94,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1030,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.46,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1031,
+                                        company_name = "КОНТРАГЕНТ 34",
+                                        size = 0.39,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1032,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.62,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1033,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.91,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1034,
+                                        company_name = "КОНТРАГЕНТ 34",
+                                        size = 0.64,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1035,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.83,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1036,
+                                        company_name = "КОНТРАГЕНТ 37",
+                                        size = 0.48,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1037,
+                                        company_name = "КОНТРАГЕНТ 36",
+                                        size = 0.76,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1038,
+                                        company_name = "КОНТРАГЕНТ 38",
+                                        size = 0.73,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 1,
+                                        hdim_rank = 3,
+                                        project_id = 1039,
+                                        company_name = "КОНТРАГЕНТ 35",
+                                        size = 0.5,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1040,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.86,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1041,
+                                        company_name = "КОНТРАГЕНТ 40",
+                                        size = 0.51,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1042,
+                                        company_name = "КОНТРАГЕНТ 45",
+                                        size = 0.94,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1043,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.77,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1044,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.61,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1045,
+                                        company_name = "КОНТРАГЕНТ 41",
+                                        size = 0.97,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1046,
+                                        company_name = "КОНТРАГЕНТ 45",
+                                        size = 0.37,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1047,
+                                        company_name = "КОНТРАГЕНТ 42",
+                                        size = 0.36,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1048,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.6,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1049,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.56,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1050,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.41,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1051,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.38,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1052,
+                                        company_name = "КОНТРАГЕНТ 44",
+                                        size = 0.49,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1053,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.87,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1054,
+                                        company_name = "КОНТРАГЕНТ 49",
+                                        size = 0.55,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1055,
+                                        company_name = "КОНТРАГЕНТ 49",
+                                        size = 0.64,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1056,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.74,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1057,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.53,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 1,
+                                        hdim_rank = 4,
+                                        project_id = 1058,
+                                        company_name = "КОНТРАГЕНТ 47",
+                                        size = 0.61,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1059,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.57,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1060,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.81,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1061,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.35,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1062,
+                                        company_name = "КОНТРАГЕНТ 52",
+                                        size = 0.57,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1063,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.62,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1064,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.43,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1065,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.56,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1066,
+                                        company_name = "КОНТРАГЕНТ 57",
+                                        size = 0.86,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1067,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.46,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1068,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.79,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1069,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.36,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1070,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.38,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1071,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.63,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1072,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.54,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1073,
+                                        company_name = "КОНТРАГЕНТ 53",
+                                        size = 0.53,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1074,
+                                        company_name = "КОНТРАГЕНТ 52",
+                                        size = 0.86,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1075,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.73,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1076,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.78,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ИВАНОВ",
+                                        vdim_id = 0,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 1,
+                                        hdim_rank = 5,
+                                        project_id = 1077,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.47,
+                                        rate = 3
+                                    }
+                                }
+                            },
+                            {
+                                {
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1078,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.5,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1079,
+                                        company_name = "КОНТРАГЕНТ 10",
+                                        size = 0.45,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1080,
+                                        company_name = "КОНТРАГЕНТ 17",
+                                        size = 0.48,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1081,
+                                        company_name = "КОНТРАГЕНТ 14",
+                                        size = 0.61,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1082,
+                                        company_name = "КОНТРАГЕНТ 16",
+                                        size = 0.6,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1083,
+                                        company_name = "КОНТРАГЕНТ 10",
+                                        size = 0.32,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1084,
+                                        company_name = "КОНТРАГЕНТ 16",
+                                        size = 0.86,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1085,
+                                        company_name = "КОНТРАГЕНТ 18",
+                                        size = 0.7,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1086,
+                                        company_name = "КОНТРАГЕНТ 12",
+                                        size = 0.4,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 2,
+                                        hdim_rank = 1,
+                                        project_id = 1087,
+                                        company_name = "КОНТРАГЕНТ 12",
+                                        size = 0.62,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1088,
+                                        company_name = "КОНТРАГЕНТ 27",
+                                        size = 0.61,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1089,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.93,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1090,
+                                        company_name = "КОНТРАГЕНТ 24",
+                                        size = 0.8,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1091,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.61,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1092,
+                                        company_name = "КОНТРАГЕНТ 21",
+                                        size = 0.39,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1093,
+                                        company_name = "КОНТРАГЕНТ 27",
+                                        size = 0.45,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1094,
+                                        company_name = "КОНТРАГЕНТ 21",
+                                        size = 0.56,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1095,
+                                        company_name = "КОНТРАГЕНТ 22",
+                                        size = 0.3,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1096,
+                                        company_name = "КОНТРАГЕНТ 25",
+                                        size = 0.95,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1097,
+                                        company_name = "КОНТРАГЕНТ 27",
+                                        size = 0.83,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1098,
+                                        company_name = "КОНТРАГЕНТ 27",
+                                        size = 0.65,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1099,
+                                        company_name = "КОНТРАГЕНТ 22",
+                                        size = 0.67,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1100,
+                                        company_name = "КОНТРАГЕНТ 27",
+                                        size = 0.67,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1101,
+                                        company_name = "КОНТРАГЕНТ 25",
+                                        size = 0.76,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1102,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.46,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1103,
+                                        company_name = "КОНТРАГЕНТ 28",
+                                        size = 0.78,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1104,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.56,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1105,
+                                        company_name = "КОНТРАГЕНТ 22",
+                                        size = 0.47,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 2,
+                                        hdim_rank = 2,
+                                        project_id = 1106,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.77,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1107,
+                                        company_name = "КОНТРАГЕНТ 32",
+                                        size = 0.81,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1108,
+                                        company_name = "КОНТРАГЕНТ 30",
+                                        size = 0.77,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1109,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.88,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1110,
+                                        company_name = "КОНТРАГЕНТ 30",
+                                        size = 0.31,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1111,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.95,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1112,
+                                        company_name = "КОНТРАГЕНТ 30",
+                                        size = 0.54,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1113,
+                                        company_name = "КОНТРАГЕНТ 37",
+                                        size = 0.87,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1114,
+                                        company_name = "КОНТРАГЕНТ 36",
+                                        size = 0.69,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1115,
+                                        company_name = "КОНТРАГЕНТ 38",
+                                        size = 0.74,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1116,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.86,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1117,
+                                        company_name = "КОНТРАГЕНТ 37",
+                                        size = 0.95,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1118,
+                                        company_name = "КОНТРАГЕНТ 37",
+                                        size = 0.54,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1119,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.9,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1120,
+                                        company_name = "КОНТРАГЕНТ 34",
+                                        size = 0.46,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1121,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.42,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1122,
+                                        company_name = "КОНТРАГЕНТ 35",
+                                        size = 0.38,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1123,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.7,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 2,
+                                        hdim_rank = 3,
+                                        project_id = 1124,
+                                        company_name = "КОНТРАГЕНТ 31",
+                                        size = 0.36,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1125,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.44,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1126,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.96,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1127,
+                                        company_name = "КОНТРАГЕНТ 40",
+                                        size = 0.36,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1128,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.42,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1129,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.92,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1130,
+                                        company_name = "КОНТРАГЕНТ 42",
+                                        size = 0.38,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1131,
+                                        company_name = "КОНТРАГЕНТ 40",
+                                        size = 0.55,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1132,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.34,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1133,
+                                        company_name = "КОНТРАГЕНТ 41",
+                                        size = 0.62,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1134,
+                                        company_name = "КОНТРАГЕНТ 49",
+                                        size = 0.73,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1135,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.84,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1136,
+                                        company_name = "КОНТРАГЕНТ 42",
+                                        size = 0.86,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 2,
+                                        hdim_rank = 4,
+                                        project_id = 1137,
+                                        company_name = "КОНТРАГЕНТ 44",
+                                        size = 0.85,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1138,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.49,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1139,
+                                        company_name = "КОНТРАГЕНТ 53",
+                                        size = 0.43,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1140,
+                                        company_name = "КОНТРАГЕНТ 57",
+                                        size = 0.89,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1141,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.46,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1142,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.36,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1143,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.93,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1144,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.39,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1145,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.37,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1146,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.56,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1147,
+                                        company_name = "КОНТРАГЕНТ 59",
+                                        size = 0.52,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1148,
+                                        company_name = "КОНТРАГЕНТ 52",
+                                        size = 0.65,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1149,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.87,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1150,
+                                        company_name = "КОНТРАГЕНТ 51",
+                                        size = 0.45,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1151,
+                                        company_name = "КОНТРАГЕНТ 57",
+                                        size = 0.54,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1152,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.53,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1153,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.91,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1154,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.78,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1155,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.64,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1156,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.34,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1157,
+                                        company_name = "КОНТРАГЕНТ 53",
+                                        size = 0.74,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "ПЕТРОВ",
+                                        vdim_id = 1,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 2,
+                                        hdim_rank = 5,
+                                        project_id = 1158,
+                                        company_name = "КОНТРАГЕНТ 58",
+                                        size = 0.36,
+                                        rate = 3
+                                    }
+                                }
+                            },
+                            {
+                                {
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1159,
+                                        company_name = "КОНТРАГЕНТ 18",
+                                        size = 0.66,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1160,
+                                        company_name = "КОНТРАГЕНТ 15",
+                                        size = 0.33,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1161,
+                                        company_name = "КОНТРАГЕНТ 15",
+                                        size = 0.92,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1162,
+                                        company_name = "КОНТРАГЕНТ 17",
+                                        size = 0.7,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1163,
+                                        company_name = "КОНТРАГЕНТ 17",
+                                        size = 0.52,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1164,
+                                        company_name = "КОНТРАГЕНТ 19",
+                                        size = 0.45,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1165,
+                                        company_name = "КОНТРАГЕНТ 18",
+                                        size = 0.44,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1166,
+                                        company_name = "КОНТРАГЕНТ 18",
+                                        size = 0.62,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1167,
+                                        company_name = "КОНТРАГЕНТ 12",
+                                        size = 0.9,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "МАШИНОСТРОЕНИЕ",
+                                        hdim_id = 0,
+                                        vdim_rank = 3,
+                                        hdim_rank = 1,
+                                        project_id = 1168,
+                                        company_name = "КОНТРАГЕНТ 13",
+                                        size = 0.74,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1169,
+                                        company_name = "КОНТРАГЕНТ 26",
+                                        size = 0.44,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1170,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.64,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1171,
+                                        company_name = "КОНТРАГЕНТ 29",
+                                        size = 0.92,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1172,
+                                        company_name = "КОНТРАГЕНТ 24",
+                                        size = 0.78,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1173,
+                                        company_name = "КОНТРАГЕНТ 22",
+                                        size = 0.65,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1174,
+                                        company_name = "КОНТРАГЕНТ 25",
+                                        size = 0.64,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1175,
+                                        company_name = "КОНТРАГЕНТ 22",
+                                        size = 0.64,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1176,
+                                        company_name = "КОНТРАГЕНТ 29",
+                                        size = 0.86,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1177,
+                                        company_name = "КОНТРАГЕНТ 21",
+                                        size = 0.34,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1178,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.72,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1179,
+                                        company_name = "КОНТРАГЕНТ 29",
+                                        size = 1.0,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1180,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.96,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1181,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.85,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1182,
+                                        company_name = "КОНТРАГЕНТ 24",
+                                        size = 0.69,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1183,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.37,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1184,
+                                        company_name = "КОНТРАГЕНТ 26",
+                                        size = 0.34,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1185,
+                                        company_name = "КОНТРАГЕНТ 21",
+                                        size = 0.7,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1186,
+                                        company_name = "КОНТРАГЕНТ 26",
+                                        size = 0.95,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1187,
+                                        company_name = "КОНТРАГЕНТ 28",
+                                        size = 0.72,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1188,
+                                        company_name = "КОНТРАГЕНТ 20",
+                                        size = 0.55,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СВЯЗЬ",
+                                        hdim_id = 1,
+                                        vdim_rank = 3,
+                                        hdim_rank = 2,
+                                        project_id = 1189,
+                                        company_name = "КОНТРАГЕНТ 23",
+                                        size = 0.74,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1190,
+                                        company_name = "КОНТРАГЕНТ 35",
+                                        size = 0.31,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1191,
+                                        company_name = "КОНТРАГЕНТ 39",
+                                        size = 0.89,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1192,
+                                        company_name = "КОНТРАГЕНТ 30",
+                                        size = 0.95,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1193,
+                                        company_name = "КОНТРАГЕНТ 34",
+                                        size = 0.81,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1194,
+                                        company_name = "КОНТРАГЕНТ 33",
+                                        size = 0.59,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "СТРОИТЕЛЬСТВО",
+                                        hdim_id = 2,
+                                        vdim_rank = 3,
+                                        hdim_rank = 3,
+                                        project_id = 1195,
+                                        company_name = "КОНТРАГЕНТ 33",
+                                        size = 0.83,
+                                        rate = 3
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1196,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.52,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1197,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.61,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1198,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.37,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1199,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.38,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1200,
+                                        company_name = "КОНТРАГЕНТ 43",
+                                        size = 0.75,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1201,
+                                        company_name = "КОНТРАГЕНТ 45",
+                                        size = 0.33,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1202,
+                                        company_name = "КОНТРАГЕНТ 45",
+                                        size = 0.98,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1203,
+                                        company_name = "КОНТРАГЕНТ 47",
+                                        size = 0.96,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1204,
+                                        company_name = "КОНТРАГЕНТ 41",
+                                        size = 0.76,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1205,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.64,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1206,
+                                        company_name = "КОНТРАГЕНТ 46",
+                                        size = 0.34,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1207,
+                                        company_name = "КОНТРАГЕНТ 48",
+                                        size = 0.78,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1208,
+                                        company_name = "КОНТРАГЕНТ 40",
+                                        size = 0.31,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТОРГОВЛЯ",
+                                        hdim_id = 3,
+                                        vdim_rank = 3,
+                                        hdim_rank = 4,
+                                        project_id = 1209,
+                                        company_name = "КОНТРАГЕНТ 40",
+                                        size = 0.39,
+                                        rate = 2
+                                    }
+                                },
+                                {
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1210,
+                                        company_name = "КОНТРАГЕНТ 54",
+                                        size = 0.82,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1211,
+                                        company_name = "КОНТРАГЕНТ 53",
+                                        size = 0.48,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1212,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.49,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1213,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.8,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1214,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.88,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1215,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.34,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1216,
+                                        company_name = "КОНТРАГЕНТ 51",
+                                        size = 0.33,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1217,
+                                        company_name = "КОНТРАГЕНТ 52",
+                                        size = 0.48,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1218,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.71,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1219,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.69,
+                                        rate = 1
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1220,
+                                        company_name = "КОНТРАГЕНТ 55",
+                                        size = 0.6,
+                                        rate = 2
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1221,
+                                        company_name = "КОНТРАГЕНТ 56",
+                                        size = 0.66,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1222,
+                                        company_name = "КОНТРАГЕНТ 50",
+                                        size = 0.38,
+                                        rate = 3
+                                    },
+                                    {
+                                        vdim = "СИДОРОВ",
+                                        vdim_id = 2,
+                                        hdim = "ТРАНСПОРТ",
+                                        hdim_id = 4,
+                                        vdim_rank = 3,
+                                        hdim_rank = 5,
+                                        project_id = 1223,
+                                        company_name = "КОНТРАГЕНТ 52",
+                                        size = 0.61,
+                                        rate = 3
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                RowGroups = dataTable.result
+
+                newSideList_sorted = dataTable.rows
+                lowerSorted = dataTable.columns
+
+
+
+            </Text>
+
+        </SourceCode>
+
+        <Event Name="HeatMapInit">
+            <Params>
+                <Param Key="InSourceID">
+                    <Bind Name="Value" Value="['FirstHeatBubbleDataSource']"/>
+                </Param>
+            </Params>
+        </Event>
+
+        <HeatBubbleSourceControl ColumnsCount="0" RowsCount="0" ID="FirstHeatBubbleDataSource">
+            <Bind Name="RowsCount" Value="[getnEx(newSideList_sorted)]"/>
+            <Bind Name="ColumnsCount" Value="[5]"/>
+            <Bind Name="MainCaption" Value="['Тепловая карта']"/>
+            <Bind Name="RowsCaption" Value="['МЕНЕДЖЕРЫ']"/>
+
+            <ColumnCaptions ColumnCaption="РЕГИСТРАЦИЯ;ОБРАЩЕНИЯ">
+                <Collection Name="column" List="[lowerSorted]"/>
+                <Bind Name="ColumnCaption" Value="[stringhelper:RegexReplace(column.hdim, '\\s+(?=\\w{2,})', '\n')]" Condition="[column ~= nil and column.hdim ~= 'Регистрация обращения']"/>
+                <Bind Name="ID" Value="[column_index]"/>
+                <Bind Name="IsClickable" Value="['true']"/>
+            </ColumnCaptions>
+
+            <Persons ID="1" FirstName="" FamilyName="">
+                <Collection Name="person" List="[newSideList_sorted]"/>
+                <Bind Name="FamilyName" Value="[person.vdim]" Condition="[person.name ~= 'Регистрация обращения']"/>
+                <Bind Name="FamilyName" Value="[stringhelper:RegexReplace(person.name, '\\s+(?=\\w{2,}\\s+)', '\n')]" Condition="[string.len(person.vdim) > 12]"/>
+                <Bind Name="FamilyName" Value="[stringhelper:RegexReplace(person.name, '\\s+(?=\\w{1,}\\s+)', '\n')]" Condition="[string.len(person.vdim) > 12]"/>
+                <Bind Name="ID" Value="[person_index]"/>
+                <Bind Name="IsClickable" Value="['true']"/>
+ 
+                <Declare Name="CellMetaMeta" Value="[RowGroups[person_index]]"/>
+
+                <Debugger Message="['RowGroups[person_index]:   ' .. json.serialize(RowGroups[person_index])]"/>
+
+                <Cells ID="11" Condition="[RowGroups[person_index] ~= nil]">
+                    <Collection Name="cellMeta" List="[lowerSorted]"/>
+                    <Declare Name="cellCart" Value="[CellMetaMeta[cellMeta_index] or {}]"/>
+                    <Debugger Message="['cellCart:   ' .. json.serialize(cellCart) or {}]"/>
+                    <Bind Name="ID" Value="[tostring(person_index) .. tostring(cellMeta_index)]"/>
+                    <Debugger Message="['CELL:   ' .. tostring(person_index) .. tostring(cellMeta_index)]"/>
+                    <Bubbles ID="111" Size="1" Color="Green">
+                        <Collection Name="bubble" List="[cellCart]"/>
+                        <Debugger Message="['bubble:   ' .. json.serialize(bubble)]"/>
+                        <Bind Name="Size" Value="[bubble.size]"/>
+                        <Bind Name="ID" Value="[bubble.project_id]"/>
+                        <Bind Name="Cost" Value="[bubble.cost or '0']"/> 
+                        <Bind Name="Color" Value="['Red']" Condition="[bubble.rate == 3]"/>
+                        <Bind Name="Color" Value="['Yellow']" Condition="[bubble.rate == 2]"/>
+                        <Info
+                                ClientNameCaption="КОНТРАГЕНТ:"
+                                ClientNameValue="ООО 'Абдырда'"
+                                ManagerNameCaption="ПРОДУКТОВЫЙ МЕНЕДЖЕР:"
+                                ManagerNameValue="АЛЕКСАНДРОВ АЛЕКС"
+                        >
+                            <Bind Name="ClientNameValue" Value="[bubble.company_name or '']"/>
+                            <Bind Name="ManagerNameValue" Value="[bubble.vdim or '']"/>
+                        </Info>
+                    </Bubbles>
+
+                </Cells>
+            </Persons>
+        </HeatBubbleSourceControl>
+    </Widget>
+</Response>
